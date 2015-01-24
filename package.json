@@ -1,0 +1,24 @@
+{
+  "name": "ol3_training",
+  "version": "0.0.1",
+  "description": "Opleiding in het gebruik van Openlayers, met gebruik van Vlaamse GDI-webservices.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.10.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+    },
+  "keywords": [
+    "GIS",
+    "GDI",
+    "Learn",
+    "tutorial"
+  ],
+  "author": "Kay Warrie",
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.x"
+  }
+}

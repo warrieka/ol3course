@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/ol.css" type="text/css">
+    <script src="src/ol-debug.js" type="text/javascript"></script>
+    <style>
+      #map {
+        height: 256px;
+        width: 512px;
+      }
+    </style>
+    <title>Hallo Wereld</title>
+  </head>
+  <body>
+    <h1>Hallo Wereld</h1>
+    <div id="map"></div>
+    <script type="text/javascript">
+   var tegellaag = new ol.layer.Tile({
+            source: new ol.source.OSM()
+        });
+        
+   var view = new ol.View({
+         projection: 'EPSG:3857',
+         center: [0, 0],
+         zoom: 1
+     });
+     
+   var map = new ol.Map({
+        target: 'map',
+        layers: [ tegellaag ],
+        view: view
+    }); 
+      
+    </script>
+  </body>
+</html>
