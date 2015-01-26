@@ -1,28 +1,6 @@
-var vectorLayer;
 $( document ).ready(function() {
-
-var vectorSource  = new ol.source.GeoJSON({
-    projection:'EPSG:31370',
-    defaultProjection: 'EPSG:4326',
-    url: "/resource/zendmast.geojson"
-});
-
-var iconStyle = new ol.style.Style({
-    image: new ol.style.Icon({
-    anchor: [0.5, 46],
-    anchorXUnits: 'fraction',
-    anchorYUnits: 'pixels',
-    opacity: 0.9,
-    src: '/images/marker-icon.png'
-    })
- });
-
-vectorLayer = new ol.layer.Vector({
-    source: vectorSource,
-    style: iconStyle
-});
-
-var projectionExtent = [9928.00, 66928.00, 272072.00, 329072.00];
+  
+var projectionExtent = [9928.0, 66928.0, 272072.0, 329072.0];
 var projection = ol.proj.get('EPSG:31370');
 projection.setExtent(projectionExtent);
 var size = ol.extent.getWidth(projectionExtent) / 256;
@@ -33,11 +11,9 @@ for (var z = 0; z < 16; ++z) {
     matrixIds[z] = z;
 }
 
-var grb = new ol.layer.Tile({
-    extent: projectionExtent,
-    source: new ol.source.WMTS({
+var grbBron = new ol.source.WMTS({
     url: 'http://grb.agiv.be/geodiensten/raadpleegdiensten/geocache/wmts/',
-    layer: 'orthoklm',
+    layer: 'grb_bsk',
     matrixSet: 'BPL72VL',
     format: 'image/png',
     projection: projection,
@@ -46,13 +22,15 @@ var grb = new ol.layer.Tile({
         resolutions: resolutions,
         matrixIds: matrixIds
         }),
-    style: 'default'
-    })
-});
-        
+    });
+var grb =  new ol.layer.Tile({
+    extent: projectionExtent,
+    source: grbBron  
+    });
+
 var map = new ol.Map({
         target: 'map',
-        layers: [ grb , vectorLayer],
+        layers: [ grb  ],
         view: new ol.View({
             projection: 'EPSG:31370',
             center: ol.proj.transform([4,51], 'EPSG:4326', 'EPSG:31370'),
