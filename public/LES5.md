@@ -57,3 +57,6 @@ var grbLaag =  new ol.layer.Tile({
     source: grbBron 
     });
 ```
+
+
+> [Volledig Voorbeeld](examples/OL3_LES5_tiles.html)

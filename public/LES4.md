@@ -88,3 +88,5 @@ $(map.getViewport()).on('mousemove', function(evt) {
   displayFeatureInfo(pixel);
 });
 ```
+
+> [Volledig Voorbeeld](examples/OL3_LES4_vector.html)
