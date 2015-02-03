@@ -59,4 +59,4 @@ var grbLaag =  new ol.layer.Tile({
 ```
 
 
-> [Volledig Voorbeeld](examples/OL3_LES5_tiles.html)
+> [Volledig Voorbeeld](examples/OL3_LES5_tiles.js)
