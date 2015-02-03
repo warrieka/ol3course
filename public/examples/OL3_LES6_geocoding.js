@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
     $( "#info" ).dialog({autoOpen: false});
     
