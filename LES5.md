@@ -21,7 +21,7 @@ Agiv bied een reeks van soort lagen aan met onder meer het GRB en de Luchtfoto's
 http://grb.agiv.be/geodiensten/raadpleegdiensten/geocache/tms/1.0.0/ 
 Alle lagen die eindigen op *GoogleMapsVL* hebben een correcte tegel structuur, zij het met een inverse y-reeks.
 Je kan deze op deze manier toevoegen aan openlayers:
-```html
+```javascript
 var basis = new ol.layer.Tile({
     source: new ol.source.XYZ({
         url: 'http://grb.agiv.be/geodiensten/raadpleegdiensten/geocache/tms/1.0.0/grb_bsk@GoogleMapsVL/{z}/{x}/{-y}.png'
