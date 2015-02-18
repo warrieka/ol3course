@@ -136,4 +136,6 @@ $( "#geocoder" ).autocomplete({
 });  
 ```
 
-> [Volledig Voorbeeld](examples/OL3_LES6_geocoding.js)
+> [Voorbeeld](examples/OL3_LES6_geocoding.js)
+
+> [Opdrachten](Opdracht_LES6.md)
