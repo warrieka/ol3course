@@ -23,4 +23,4 @@ Inhoudsopgave
  5. [Les 5: Tegel lagen](LES5.md) 
  6. [Les 6: Geolocatie op basis van adres](LES6.md) 
  7. [Les 7: Vectorlagen op maat](LES7.md) 
- 8. [Opdrachten](Opdracten.md)
+ 8. [Opdrachten](OPDRACHT1.md)
