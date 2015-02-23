@@ -1,8 +1,12 @@
 {
   "name": "ol3_training",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Opleiding in het gebruik van Openlayers, met gebruik van Vlaamse GDI-webservices.",
   "main": "app.js",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/warrieka/ol3course.git"
+  },
   "dependencies": {
     "express": "^4.10.7"
   },
