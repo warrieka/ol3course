@@ -79,4 +79,6 @@ Om een feature Object te maken heb je gewoon JSON-object nodig met een Openlayer
 }
 ```
 
-> [Volledig Voorbeeld](examples/OL3_LES7_custom_layerSource.html)
+> [Voorbeeld](examples/OL3_LES7_custom_layerSource.js)
+
+> [Opdrachten](Opdracht_LES7.md)

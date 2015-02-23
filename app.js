@@ -12,16 +12,17 @@ app.use( function(req, res, next) {
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res){
+/*
+app.get('/iets', function(req, res){
   
   if( req.originalUrl == '/' ){ 
-      res.redirect('/index.html');
+      res.redirect('/iets.html');
       return; }
       
   var msg = req.param('name');
     
   res.send( req.originalUrl  );
-});
+});*/
 
 /*Error handling*/
 app.use(function(req, res, next){

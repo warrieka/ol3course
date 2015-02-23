@@ -65,6 +65,6 @@ map.on('singleclick', function(evt) {
     });
 ```
 
-> [Volledig Voorbeeld](examples/OL3_LES2_WMS.html)
+> [Voorbeeld](examples/OL3_LES2_WMS.js)
 
-  
+> [Opdrachten](Opdracht_LES2.md)
