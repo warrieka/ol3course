@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Cursus Openlayers 3</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kay Warrie" />
+    <!-- jquery -->
+    <script src="src/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.spacelab.min.css" type="text/css"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+    <script src="src/bootstrap.min.js"></script>
+    <!-- pygments -->
+    <link href="css/pygments/native.css" rel="stylesheet"  type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <!-- Highlight js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Inhoud</a>
+      </div>
+      <ul class="nav navbar-nav">
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          Lessen<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="LES1">Les 1: Hallo Wereld</a></li>
+            <li><a href="LES2">Les 2: WMS Lagen</a></li>
+            <li><a href="LES3">Les 3: Werken met coördinaat-systemen</a></li>
+            <li><a href="LES4">Les 4: Vector lagen</a></li>
+            <li><a href="LES5">Les 5: Tegel lagen</a></li>
+            <li><a href="LES6">Les 6: Geolocaliseren op basis van adres</a></li>
+            <li><a href="LES7">Les 7: Vector lagen op maat</a></li>
+          </ul>
+      </li>
+      <li><a href="OPDRACHT1">Opdracht 1</a></li>
+      </ul>
+    </div><!-- /.container-fluid -->
+  </nav>
+      <br/><br/><br/>
+  <div class="container">
+    {{{markdownFile.parsedContent}}}
+  </div>
+  </body>
+</html>

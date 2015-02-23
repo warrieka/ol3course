@@ -3,17 +3,19 @@
   "version": "1.0.0",
   "description": "Opleiding in het gebruik van Openlayers, met gebruik van Vlaamse GDI-webservices.",
   "main": "app.js",
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/warrieka/ol3course.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/warrieka/ol3course.git"
   },
   "dependencies": {
-    "express": "^4.10.7"
+    "express": "^4.10.7",
+    "hbs": "^2.8.0",
+    "markdown-serve": "^0.3.2"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node app.js"
-    },
+  },
   "keywords": [
     "GIS",
     "GDI",

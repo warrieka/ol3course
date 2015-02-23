@@ -1,4 +1,4 @@
-LES 3: Werken met coördinaat-systemen 
+Les 3: Werken met coördinaat-systemen 
 ====
 
 In openlayers worden de coördinaatsystemen steeds bij hun ESPG-code benoemd. 
@@ -26,6 +26,4 @@ var mercatorPunt = ol.proj.transform(lambert72Punt, 'EPSG:31370', 'EPSG:3857');
 ```
 Bij vectorlagen zal automatisch een transformatie van de coördinaten naar de kaartprojectie  gebeuren indien  deze  niet overeenstemmen en het coördinaatsysteem toegevoegd is.
 
-> [Voorbeeld](examples//OL3_LES3_coordnaatsystemen.js)
-
-> [Opdrachten](Opdracht_LES3.md)
+> [Voorbeeld code](examples//OL3_LES3_coordnaatsystemen.js)

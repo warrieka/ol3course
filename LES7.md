@@ -1,4 +1,4 @@
-LES 7:  Vector lagen op maat
+Les 7:  Vector lagen op maat
 =====
 Openlayers ondersteunt allerlei standaard tekstformaten voor de opbouw van Vectorlagen, zoals GeoJSON, WKT, KML en GML.
 Veel webservices volgen om allerlei redenen deze structuren niet of maar gedeeltelijk. In dat geval zal je zelf het bestand moeten parseren in javascript een omzetten naar Vectorlaag-bron.
@@ -79,6 +79,4 @@ Om een feature Object te maken heb je gewoon JSON-object nodig met een Openlayer
 }
 ```
 
-> [Voorbeeld](examples/OL3_LES7_custom_layerSource.js)
-
-> [Opdrachten](Opdracht_LES7.md)
+> [Voorbeeld code](examples/OL3_LES7_custom_layerSource.js)

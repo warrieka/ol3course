@@ -1,4 +1,4 @@
-LES 2:  WMS Lagen 
+Les 2:  WMS Lagen 
 ====
 
 > **Opmerking:** Vanaf nu zullen we ook de [JQuery](http://jquery.com/) javascript-library gebruiken voor het manipuleren van html en het openhalen van extern bronnen. 
@@ -65,6 +65,4 @@ map.on('singleclick', function(evt) {
     });
 ```
 
-> [Voorbeeld](examples/OL3_LES2_WMS.js)
-
-> [Opdrachten](Opdracht_LES2.md)
+> [Voorbeeld code](examples/OL3_LES2_WMS.js)

@@ -14,26 +14,29 @@ $( "#dhmChk" ).click(function() {
     $( "#dhmlegende").toggle()
 });
 /*openlayers  gebruiken om de kaart te maken*/
-var basis =  new ol.layer.Tile({
-      source: new ol.source.MapQuest({
-        layer: 'osm'
-      })
-    })
 
-var dhm = new ol.source.ImageWMS({
+var dhmBron = new ol.source.ImageWMS({
             url: 'http://geo.agiv.be/inspire/wms/hoogte',
-            params: {'LAYERS': 'DHM'}
+            params: {'LAYERS': 'DHM', VERSION: '1.3.0'}
         });  
         
 var hoogte = new ol.layer.Image({
         title: "Hoogte",
         opacity: 0.7,
-        source: dhm
+        source: dhmBron
         });   
-        
+
+var grb = new ol.layer.Image({
+        title: "GRB",
+        source: new ol.source.ImageWMS({
+            url: 'http://grb.agiv.be/geodiensten/raadpleegdiensten/GRB-basiskaart/wms',
+            params: {LAYERS: 'GRB_BASISKAART', VERSION: '1.3.0'}
+        })
+    });
+
 var map = new ol.Map({
         target: 'map',
-        layers: [basis, hoogte ],
+        layers: [grb, hoogte ],
         view: new ol.View({
             projection: 'EPSG:3857',
             center: ol.proj.transform([4,51], 'EPSG:4326', 'EPSG:3857'),
@@ -52,7 +55,6 @@ map.on('singleclick', function(evt) {
             '<iframe style="border-style: none" width=200 height=130 src="' + url + '"></iframe>');
     }
     $( "#infoDlg" ).dialog( "open" );
-    });
-
+   });
 });
     

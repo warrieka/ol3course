@@ -1,8 +1,11 @@
 #!/usr/bin/env node
-
 var express = require('express');
-var app = express();
+var path = require('path');
+var mds = require('markdown-serve')
 var fs = require('fs')
+
+/*create the app*/
+var app = express();
 
 app.use( function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -10,20 +13,20 @@ app.use( function(req, res, next) {
   next();
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.resolve(__dirname , 'public')));
 
-/*
-app.get('/iets', function(req, res){
-  
-  if( req.originalUrl == '/' ){ 
-      res.redirect('/iets.html');
-      return; }
-      
-  var msg = req.param('name');
-    
-  res.send( req.originalUrl  );
-});*/
+/*render markdown*/
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
 
+app.use(
+    mds.middleware({ 
+    rootDirectory: __dirname,
+    view: 'markdown',
+    preParse: true  
+    })  
+);
+ 
 /*Error handling*/
 app.use(function(req, res, next){
   res.status(404);

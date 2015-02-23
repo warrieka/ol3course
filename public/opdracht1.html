@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Opdracht 1</title>
+    <meta charset="utf-8">
+    
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+     //no calc in old EI css, use jquery instead
+      $( document ).ready(function() {
+            $('#map').css('height', '100%').css('height', '-=39px');
+      });
+      $( window ).resize(function() { $('#map').css('height', '100%').css('height', '-=39px'); });
+    </script>
+    <![endif]-->
+    
+    <!--jquery-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--openlayers-->
+    <link rel="stylesheet" href="css/ol.css" type="text/css">
+    <script src="src/ol-debug.js" type="text/javascript"></script>
+    <script src="src/proj4.js" type="text/javascript"></script>
+    
+    <!--vanaf hier eigen kan je eigen code toevoegen-->
+    <style>
+        .dlg {font-size: 10px;}
+        body {margin:0;padding:0;}
+        #adres { position: absolute; right: 10px; top: 50px; z-index:100000}
+        #map { position: absolute; height:calc( 100% - 39px ); top:39px; width: 100%; background-color: #b0c4de;} 
+    </style>
+    <script src="opdracht1.js"></script>
+  </head>
+  <body>
+       <div id="toolbar" class="ui-widget-header ui-corner-all">
+              <button id="legendeBtn" type="button" title="Meer info over de laag" >Legende</button>
+
+               <span id="basemapSwitch" title="Wissel van achtergrond">
+                    <input type="radio" id="lufo" name="basemapSwitch" checked="checked" /><label for="lufo">Luchtfoto</label>
+                    <input type="radio" id="basiskaart" name="basemapSwitch" /><label for="basiskaart">GRB</label>
+               </span>
+               <span id="mapTip" />
+       </div>         
+       
+      <input id="adres" placeholder="Straat Huisnummer" />  
+      <div id="map" ></div>
+      <div id="info" title="Info" class="dlg" ><div/>
+      <div id="legende" title="Legende" class="dlg" ><div/>
+  </body>
+</html>

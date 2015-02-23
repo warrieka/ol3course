@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
 
 var vectorSource  = new ol.source.GeoJSON({
@@ -45,17 +44,15 @@ $(map.getViewport()).on('mousemove', function(evt) {
 });
 
 var displayFeatureInfo = function(pixel) {
+    var feature = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+        return feature;
+    });
 
-  var feature = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
-    return feature;
-  });
-
-  if (feature) {
-    $('#info').html( feature.get('OPERATOR'));
-  } else {
-    $('#info').html( '' );
-  }
-};
-
+    if (feature) {
+        $('#info').html( feature.get('OPERATOR'));
+    } else {
+        $('#info').html( '' );
+        }
+    };
 
 });

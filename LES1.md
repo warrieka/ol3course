@@ -90,6 +90,4 @@ Alles te samen:
 </html>
 ```
 
-> [Voorbeeld](examples/OL3_LES1_hallo_wereld.html)
-
-> [Opdrachten](Opdracht_LES1.md)
+> [Voorbeeld code](examples/OL3_LES1_hallo_wereld.html)
