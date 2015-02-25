@@ -1,21 +1,44 @@
 Cursus Openlayers 3 aan de hand van GDI-webdiensten
 ====
 Auteur: Kay Warrie
-Voorwoord 
+
+Over 
 ----
-
 In deze oefeningen wordt het maken van geografische web-toepassingen toegelicht aan de hand van de [openlayers](http://openlayers.org/) javascript bibliotheek. 
-Openlayers is een van de meest uitgebreide geografische web toolkits, die gebruik maakt van de laatste HTML5 web-technologieën, Het is volledig open source product onder permissieve BSD-licentie. Het wordt actief ontwikkeld door community van open source programmeurs, meestal verbonden aan allerlei bedrijven die deze library gebruiken. 
 
-Deze library wordt veel gebruikt in de GIS-sector vanwege zijn goede support voor coördinaatsystemen, OGC-standaarden inclusief GML/WFS en de afwezigheid van afhankelijkheden. Zo wordt deze library gebruikt in de [GDI-viewer](http://geo-vlaanderen.agiv.be/gdiviewer/) en het CRAB-loket [LARA](https://crab.agiv.be/Lara/Home/Index2) van AGIV of in de [urbis-viewer](http://www.mybrugis.irisnet.be/MyBruGIS/brugis/) van het Brusselse gewest.
+De cursus is opgebouwd als een nodeJS webapplicatie, die zowel dient als ontwikkel-server en als toegang tot cursus materiaal.
 
-Naast openlayers heb nog andere populaire toolkits zoals [leaflet](http://leafletjs.com/), een lichtgewicht framework, ideaal voor snel eenvoudige toepassingen te maken, maar minder geschikt voor complexe toepassingen volgens OGC-standaarden, waarbij je data moet bewerken of met meerdere coördinaatsystemen moet werken.
+Installatie 
+-----
+**nodeJS:** download, via: *http://nodejs.org > install* <br/>
+Download cursus materiaal via: https://github.com/warrieka/ol3course/archive/master.zip <br/>
+Extraheer de contents naar een geschikte locatie: &lt;path>
 
-Ook zijn een aantal commerciële bedrijven die GIS-toepassingen ontwikkelen, de grootste is ESRI met hun [arcgis producten](https://developers.arcgis.com/en/). Andere spelers zijn [autodesk](http://www.autodesk.com/products/infrastructure-map-server/overview) met hun open source mapguide product en het Belgische [GEOSPARC](http://www.geosparc.com/) die het open source JAVA-GWT framework [Geomajas](http://www.geomajas.org/) ontwikkelen.
-Ook zijn er natuurlijk dingen zoals Google en Bing maps, maar deze zijn niet gericht op technische toepassingen. 
+Open het Node.js commando prompt:
+menu start > Node.js > Node.js command prompt 
+
+Ga naar &lt;path>\ol3course-master
+
+```batchfile
+ $ cd <path>\ol3course-master 
+```
+
+Installeer dependencies van de toepassing lokaal:
+```batchfile
+ $ npm install
+```
+
+Start de webserver:
+```batchfile	
+ $ npm start
+```
+Browse naar http://localhost:3000/
 
 Inhoudsopgave 
 -----
+
+&nbsp;&nbsp;&nbsp;&nbsp;[Voorwoord](index.md)
+ 
  1. [Les 1: Hallo Wereld](LES1.md)
  2. [Les 2: WMS lagen](LES2.md)
  3. [Les 3: Werken met coordinaat-systemen](LES3.md)
