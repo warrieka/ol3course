@@ -5,6 +5,7 @@ Auteur: Kay Warrie
 Over 
 ----
 In deze oefeningen wordt het maken van geografische web-toepassingen toegelicht aan de hand van de [openlayers](http://openlayers.org/) javascript bibliotheek. 
+De meeste gebruikte kaart diensten zijn afkomstig uit de Vlaamse Geografische Data-Infrastructuur (GDI-Vlaanderen).
 
 De cursus is opgebouwd als een nodeJS webapplicatie, die zowel dient als ontwikkel-server en als toegang tot cursus materiaal.
 
@@ -32,7 +33,7 @@ Start de webserver:
 ```batchfile	
  $ npm start
 ```
-Browse naar http://localhost:3000/
+Browse naar [http://localhost:3000](http://localhost:3000)
 
 Inhoudsopgave 
 -----

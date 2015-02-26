@@ -77,7 +77,7 @@ Alles te samen:
          projection: 'EPSG:3857',
          center: [0, 0],
          zoom: 1
-     }):    
+     });
      
    var map = new ol.Map({
         target: 'map',
