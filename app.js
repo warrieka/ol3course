@@ -17,27 +17,40 @@ app.use( function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname , 'public')));
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+/*tryit editor*/
 app.get('/tryit', function (req, res) {
     var code = "probeer het";
-    if (req.query.code)  {
-        code = req.query.code;
+
+    if(req.query.file){
+        var examplePath = path.join( __dirname , 'public', req.query.file )
+        var stats = fs.lstatSync(examplePath)
+        
+        if( stats.isFile() ){
+            fs.readFile(examplePath, 'utf8', function (err,data) {
+                if (err)  { return res.sendStatus(400); }
+                if (data) { 
+                    return res.render('tryit', { code: data }); 
+                }
+            });
+        }
     }
-    
-   res.render('tryit', { code: code });
-})
+    else return res.render('tryit', { code: "Geef hier HTML in" });
+});
+
 app.get('/result', function (req, res) {
     res.send( "<em>Klik op Probeer het</em>" );
 })
 app.post('/result', function (req, res) {
    if (!req.body.code) {return res.sendStatus(400);}
    
-   res.set('X-XSS-Protection', 0);
+   res.set('X-XSS-Protection', 0); 
    res.send( req.body.code );
 })
 
 /*render markdown*/
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
 
 app.use(
     mds.middleware({ 
@@ -46,7 +59,6 @@ app.use(
     preParse: true  
     })  
 );
-
 
 /*Error handling*/
 app.use(function(req, res, next){

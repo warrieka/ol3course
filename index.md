@@ -23,4 +23,5 @@ Inhoudsopgave
  5. [Les 5: Tegel lagen](LES5) 
  6. [Les 6: Geolocatie op basis van adres](LES6) 
  7. [Les 7: Vectorlagen op maat](LES7) 
- 8. [Opdrachten](OPDRACHT1)
+ 8. [Les 8: Een backend opzetten of zelf programmeren](LES8)
+ 9. [Opdrachten](OPDRACHT1)
