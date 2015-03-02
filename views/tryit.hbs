@@ -1,53 +1,113 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<head>
+<head lang="nl">
     <title>Probeer het zelf</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kay Warrie" />
     <meta charset="utf-8">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <style type="text/css">
-    table { margin: 0 auto; } 
-    textarea, iframe { width: 500px; height: 500px; }
-    .link { font-family: Verdana, Geneva, sans-serif; 
-            font-weight: bold; font-size: 12px; color: #008000; }
-    .h1 { color: #008000; }
-    </style>
-    <!--codemirror-->
-<!--     <link rel="stylesheet" href="css/codemirror.css">
-    <script src="src/codemirror.js"></script>
-    <script src="src/codemirror-mode.js"></script>  -->
+    <!-- jquery -->
+    <script src="/src/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.spacelab.min.css" type="text/css"/>
+    <link href="/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
+    <script src="src/bootstrap.min.js"></script>
+
+    <!--codemirror code editor-->
+    <link rel="stylesheet" href="css/codemirror.css">
+    <script src="src/codeMirror.js"></script>
+    <script src="src/codeMirror/htmlmixed.js"></script> 
+    <script src="src/codeMirror/xml.js"></script>   
+    <script src="src/codeMirror/css.js"></script>  
+    <script src="src/codeMirror/javascript.js"></script> 
     
+    <style type="text/css">
+        table { margin: 0 auto; width:99%} 
+        
+        #code { visibility: hidden; height: 0px}
+        #codeEdit, #resultFrame {  border: 1px solid black;
+                                border-collapse: collapse; }
+        #codeEdit{ width: 500px  }
+        iframe {display:block; width: 100%; height: 500px;}
+        .CodeMirror { width: 500px; border-top: 1px solid #888; border-bottom: 1px solid #888;}
+    </style>
 </head>
 
 <body>
+  <!-- navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="/">Openlayers 3</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" >
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          Lessen<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="LES1">Les 1: Hallo Wereld</a></li>
+            <li><a href="LES2">Les 2: WMS Lagen</a></li>
+            <li><a href="LES3">Les 3: Werken met coördinaat-systemen</a></li>
+            <li><a href="LES4">Les 4: Vector lagen</a></li>
+            <li><a href="LES5">Les 5: Tegel lagen</a></li>
+            <li><a href="LES6">Les 6: Geolocaliseren op basis van adres</a></li>
+            <li><a href="LES7">Les 7: Vector lagen op maat</a></li>
+            <li><a href="LES8">Les 8: Een backend opzetten of zelf programmeren</a></li>
+          </ul>
+      </li>
+      <li><a href="OPDRACHT1">Opdracht 1</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+      <br/><br/><br/>
+
     <h1>Probeer het zelf</h1>
     <form id="tryitform" name="tryitform" action="result" target="view" method="post">
-    <table border="1">
+    <table >
         <tr>
-            <td> <input type="submit" value="Probeer het" /> </td>
+            <td> <input type="button"  onclick="manageSubmit()" value="Probeer het" /> </td>
             <td> <strong>Preview</strong> </td>
         </tr>
         <tr>
-            <td id="code">
-                 <textarea id="code" name="code"> {{code}}
-                </textarea> 
+            <td id="codeEdit">
             </td>
-            <td>
-                <iframe frameborder="0" src="result" name="view" id="view"> </iframe>
+            <td id="resultFrame">
+                <iframe  frameborder="0" src="result" name="view" id="view"> </iframe>
             </td>
         </tr>
     </table>
+    <textarea id="code" name="code"> </textarea> 
     </form>
-<!--     
+     
+   <footer class="footer">
+   <div class="container" style="font-size: 9px;" >
+      <hr>
+      <div class="row">
+         Kay Warrie &copy; 2015 | email:<a href="mailto:kaywarrie@gmail.com" > kaywarrie@gmail.com</a>         
+         <p class="pull-right"><a href="#">Terug naar boven</a></p>
+      </div>
+   </div>
+   </footer>
+     
    <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            return results === null ? "examples/OL3_LES1_hallo_wereld.html" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
+        
+        var mirror ;
+        
         xmlhttp=new XMLHttpRequest();
         xmlhttp.open("GET", getParameterByName('file') ,1);
         xmlhttp.send();
@@ -55,10 +115,15 @@
         {
               if (xmlhttp.readyState==4 && xmlhttp.status==200)
                 {
-                     var myCodeMirror = CodeMirror( document.getElementById('code'),
-                     {value: xmlhttp.responseText} );
+                     mirror = CodeMirror( document.getElementById('codeEdit'),
+                     {value: xmlhttp.responseText, mode: "htmlmixed",  lineNumbers: true} );
                 }
         }
-    </script>  -->
+        
+        function manageSubmit(){
+            document.getElementById("code").value  = mirror.getValue();     
+            document.getElementById("tryitform").submit();
+        }
+    </script> 
 </body>
 </html>

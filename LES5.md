@@ -6,7 +6,7 @@ Een probleem met dynamisch genereerde Afbeeldingsdiensten zoals WMS is het dat e
 De oplossing hiervoor is de afbeeldingen op voorhand aan te maken. Dit is wat googlemaps - openstreetmaps ed. zo snel maakt ten opzichte van WMS-services. 
 Deze tegel-caches volgens een specifieke structuur waarbij binnen een bepaald extent 4 tiles gemaakt worden voor zoomschaal 1, 16 voor zoomschaal 2, 64 voor zoomschaal 3 etc. 
 
-![](https://i-msdn.sec.s-msft.com/dynimg/IC96238.jpg)
+![](/images/Tiling.png)
 
 Tegel lagen met een GoogleMaps-achtige structuur:
 ----
@@ -83,5 +83,5 @@ var grbLaag =  new ol.layer.Tile({
     });
 ``` 
 
-> [Voorbeeld code](examples/OL3_LES5_tiles.js)
+> [Probeer het zelf](tryit?file=examples/OL3_LES5_tiles.html)
 

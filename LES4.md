@@ -89,4 +89,4 @@ $(map.getViewport()).on('mousemove', function(evt) {
 });
 ```
 
-> [Voorbeeld code](examples/OL3_LES4_vector.js)
+> [Probeer het zelf](tryit?file=examples/OL3_LES4_vector.html)

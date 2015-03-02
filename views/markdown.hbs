@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="nl">
   <head>
     <title>Cursus Openlayers 3</title>
     <!-- Using the latest rendering mode for IE -->
@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="css/bootstrap.spacelab.min.css" type="text/css"/>
     <link href="/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
     <script src="src/bootstrap.min.js"></script>
-    <!-- pygments -->
-    <link href="/css/pygments/native.css" rel="stylesheet"  type="text/css"/>
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <!-- Highlight js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   
+    <style>
+        code.hljs {  background-color: transparent; }
+    </style>
   </head>
   <body>
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -32,7 +32,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="/">Inhoud</a>
+        <a class="navbar-brand" href="/">Openlayers 3</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" >
@@ -52,6 +52,7 @@
       </li>
       <li><a href="OPDRACHT1">Opdracht 1</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right" ><li><a href="tryit">Probeer het zelf</a></li></ul>
       </div>
     </div><!-- /.container-fluid -->
   </nav>
@@ -59,5 +60,16 @@
   <div class="container">
     {{{markdownFile.parsedContent}}}
   </div>
+  
+   <footer class="footer">
+   <div class="container" style="font-size: 9px;" >
+      <hr>
+      <div class="row">
+         Kay Warrie &copy; 2015 | email:<a href="mailto:kaywarrie@gmail.com" > kaywarrie@gmail.com</a>         
+         <p class="pull-right"><a href="#">Terug naar boven</a></p>
+      </div>
+   </div>
+   </footer>
+  
   </body>
 </html>

@@ -26,4 +26,4 @@ var mercatorPunt = ol.proj.transform(lambert72Punt, 'EPSG:31370', 'EPSG:3857');
 ```
 Bij vectorlagen zal automatisch een transformatie van de coördinaten naar de kaartprojectie  gebeuren indien  deze  niet overeenstemmen en het coördinaatsysteem toegevoegd is.
 
-> [Voorbeeld code](examples//OL3_LES3_coordnaatsystemen.js)
+> [Probeer het zelf](tryit?file=examples/OL3_LES3_coordnaatsystemen.html)

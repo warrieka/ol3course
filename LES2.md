@@ -6,7 +6,7 @@ Les 2:  WMS Lagen
 WMS-lagen toevoegen aan de kaart
 ------
 Veel geodata van allerlei bronnen, zoals van het  GDI wordt aangeboden als WMS. 
-Dit soort service genereert dynamisch een afbeelding  van de data binnen een bepaald opgegeven geografisch gebied.  Je kunt vaak van een WMS ook een legende opvragen en 
+Dit soort service genereert dynamisch een afbeelding  van de data binnen een bepaald opgegeven geografisch gebied.  Je kunt vaak van een WMS ook een legende opvragen en lagen identificeren.
 
 In openlayers wordt een onderscheid gemaakt tussen kaartlagen en de achterliggende databron.  Van afbeeldings-databron op basis van WMS moet je minstens de *url* en de laagnamen van de gewenste kennen. 
 De laagnamen (*LAYERS*) worden opgeven als een comma-gescheiden lijst in de *param* parameter. Andere optionele parameters zijn *STYLE*, *VERSION* en *FORMAT*.
@@ -65,4 +65,4 @@ map.on('singleclick', function(evt) {
     });
 ```
 
-> [Voorbeeld code](examples/OL3_LES2_WMS.js)
+> [Probeer het zelf](tryit?file=examples/OL3_LES2_WMS.html)

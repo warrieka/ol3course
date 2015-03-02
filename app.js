@@ -22,22 +22,7 @@ app.set('view engine', 'hbs');
 
 /*tryit editor*/
 app.get('/tryit', function (req, res) {
-    var code = "probeer het";
-
-    if(req.query.file){
-        var examplePath = path.join( __dirname , 'public', req.query.file )
-        var stats = fs.lstatSync(examplePath)
-        
-        if( stats.isFile() ){
-            fs.readFile(examplePath, 'utf8', function (err,data) {
-                if (err)  { return res.sendStatus(400); }
-                if (data) { 
-                    return res.render('tryit', { code: data }); 
-                }
-            });
-        }
-    }
-    else return res.render('tryit', { code: "Geef hier HTML in" });
+    res.render('tryit', { code: "Geef hier HTML in" });
 });
 
 app.get('/result', function (req, res) {

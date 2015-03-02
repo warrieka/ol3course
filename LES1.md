@@ -90,4 +90,4 @@ Alles te samen:
 </html>
 ```
 
-> [Voorbeeld code](examples/OL3_LES1_hallo_wereld.html)
+> [Probeer het zelf](tryit?file=examples/OL3_LES1_hallo_wereld.html)
