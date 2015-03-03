@@ -1,3 +1,7 @@
+title: Hallo Wereld 
+example: examples/OL3_LES1_hallo_wereld.html
+---
+
 Les 1: Hallo Wereld 
 ====
 Om kaart te maken in webpagina moet aan de html-code zelf maar een paar dingen toevoegen.

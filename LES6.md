@@ -1,3 +1,7 @@
+title: Geolocaliseren op basis van adres
+example: examples/OL3_LES6_geocoding.html
+---
+
 Les 6: Geolocaliseren op basis van adres
 ====
 Adressen geolocaliseren  op een kaart, ook wel geocoding genoemd is een veel voorkomende functie op een webmap. Op basis van een  adres wordt een coördinaat op de kaart bepaald. 

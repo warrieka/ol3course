@@ -1,3 +1,7 @@
+title: Vector lagen
+example: examples/OL3_LES4_vector.html
+---
+
 Les 4: Vector lagen
 ==== 
 Sommige gisdata kan worden binnen gehaald als gestructureerde tekst in plaats van een afbeelding.

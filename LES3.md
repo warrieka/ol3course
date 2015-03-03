@@ -1,3 +1,7 @@
+title: Werken met coördinaat-systemen 
+example: examples/OL3_LES3_coordnaatsystemen.html
+---
+
 Les 3: Werken met coördinaat-systemen 
 ====
 

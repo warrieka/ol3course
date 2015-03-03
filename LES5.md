@@ -1,3 +1,7 @@
+title: Tegel lagen 
+example: examples/OL3_LES5_tiles.html
+---
+
 Les 5: Tegel lagen
 ==== 
 

@@ -1,3 +1,7 @@
+title: WMS Lagen 
+example: examples/OL3_LES2_WMS.html
+---
+
 Les 2:  WMS Lagen 
 ====
 

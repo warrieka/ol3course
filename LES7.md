@@ -1,3 +1,7 @@
+title: Vector lagen op maat
+example: examples/OL3_LES7_custom_layerSource.html
+---
+
 Les 7:  Vector lagen op maat
 =====
 Openlayers ondersteunt allerlei standaard tekstformaten voor de opbouw van Vectorlagen, zoals GeoJSON, WKT, KML en GML.
