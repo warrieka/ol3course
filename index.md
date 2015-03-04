@@ -28,4 +28,4 @@ Inhoudsopgave
  6. [Les 6: Geolocatie op basis van adres](LES6) 
  7. [Les 7: Vectorlagen op maat](LES7) 
  8. [Les 8: Een backend opzetten of zelf programmeren](LES8)
- 9. [Opdrachten](OPDRACHT1)
+ 9. [Opdrachten](OPDRACHT)

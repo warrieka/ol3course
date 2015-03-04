@@ -1,4 +1,4 @@
-Opdracht 1
+Opdrachten
 ====
 
 Er is een template om te starten is voorzien in de folder public: 
