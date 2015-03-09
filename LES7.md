@@ -1,6 +1,6 @@
 title: Vector lagen op maat
 example: examples/OL3_LES7_custom_layerSource.html
-opdracht: 
+opdracht: Maak een tweede laag met de manifestaties, gebruik andere kleuren en symbolen
 ---
 
 Les 7:  Vector lagen op maat
@@ -84,4 +84,3 @@ Om een feature Object te maken heb je gewoon JSON-object nodig met een Openlayer
 }
 ```
 
-> [Probeer het zelf](tryit?file=examples/OL3_LES7_custom_layerSource.html)

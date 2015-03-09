@@ -1,6 +1,6 @@
-title: Geolocaliseren op basis van adres
-example: examples/OL3_LES6_geocoding.html
-opdracht: 
+title: Geolocaliseren op basis van adres 
+example: examples/OL3_LES6_geocoding.html 
+opdracht: Zoek poi in plaats van op adres, geef de locatie in lambert coordinaten mee in popup.
 ---
 
 Les 6: Geolocaliseren op basis van adres
@@ -12,7 +12,7 @@ In CRAB zitten huisnummers meestal nauwkeurig tot op de locatie van het gebouw. 
 
 Bovenop CRAB bestaan verschillende [beheer- en raadpleegdiesten](https://www.agiv.be/producten/crab/meer-info-over-crab/beheer-van-het-crab/crab-beheerdiensten) zoals WS-CRAB die toegang biedt tot het hele datamodel. 
 Deze diensten op basis het SOAP-protocol zijn echter wat te complex om eenvoudig in een webapplicatie in te bouwen. 
-![enter image description here](https://www.agiv.be/~/media/agiv/producten/crab/beelden/fullcrabmodel.png)
+![](https://www.agiv.be/~/media/agiv/producten/crab/beelden/fullcrabmodel.png)
 Hiervoor is de eenvoudiger geolocation service beschikbaar.  Deze service zoekt zowel op gemeenten, straten en huisnummers en het kan ook op zogeheten interesse punten zoeken.
 
 Deze service heeft 2 eindpunten:
@@ -141,4 +141,3 @@ $( "#geocoder" ).autocomplete({
 });  
 ```
 
-> [Probeer het zelf](tryit?file=examples/OL3_LES6_geocoding.html)

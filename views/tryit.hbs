@@ -32,7 +32,7 @@
         #code { visibility: hidden; height: 0px}
         #codeEdit, #resultFrame { overflow: hidden; 
                                   border: 1px solid black; border-collapse: collapse; }
-
+        .alert { margin: 4px; padding: 3px }
         iframe {display:block; width: 100%; height: 100%;}
         .CodeMirror { width: 100%; height: 100%; border-top: 1px solid #888; border-bottom: 1px solid #888;}
     </style>
@@ -73,9 +73,10 @@
   </nav>
       <br/><br/><br/>
 <!--end navbar-->
-      
-    <h1>Probeer het zelf</h1>
-    <form id="tryitform" name="tryitform" action="result" target="view" method="post">
+    
+    <div class="alert alert-info" role="alert" id="msg"></div>
+    
+    <p><form id="tryitform" name="tryitform" action="result" target="view" method="post">
     <input type="button"  onclick="manageSubmit()" value="Probeer het" />
     <div id="widget">
          <div id="codeEdit"></div>
@@ -94,13 +95,9 @@
          Kay Warrie &copy; 2015 | email:<a href="mailto:kaywarrie@gmail.com" > kaywarrie@gmail.com</a>         
          <p class="pull-right"><a href="#">Terug naar boven</a></p>
       </div>
-   </div>
    </footer>
 <!--end footer-->   
-   <script>
-        $('#widget').height( window.innerHeight - 250 ).split({orientation:'vertical', limit:100});
-        $( window ).resize(function() { $('#widget').height( window.innerHeight - 250 ); });
-        
+   <script>        
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -108,6 +105,13 @@
             return results === null ? "examples/OL3_LES1_hallo_wereld.html" : decodeURIComponent(results[1].replace(/\+/g, " "));
         }
         
+        $('#widget').height( window.innerHeight - 230 ).split({orientation:'vertical', limit:100});
+        $( window ).resize(function() { $('#widget').height( window.innerHeight - 250 ); });
+        
+        var msg = getParameterByName("msg");
+        if(msg){
+            $('#msg').html("<strong>Opdracht: </strong>"+ msg );
+        }
         var mirror ;
         
         xmlhttp=new XMLHttpRequest();

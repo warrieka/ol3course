@@ -19,6 +19,7 @@
         <div id="info"></div>
         
          <script type="text/javascript">
+         
             var dlg = $( "#info" ).dialog({ autoOpen: false });
             
             var vectorSource = new ol.source.Vector({projection: 'EPSG:3857'});
@@ -26,18 +27,34 @@
             var clusterSource = new ol.source.Cluster({
                 distance: 40, source: vectorSource
             });
-            
+
             var vectorLayer = new ol.layer.Vector(
-                {style: function(feature, resolution) {
+                {style: function(feature, resolution) {   
+                    var stl;
                     var size = feature.getProperties().features.length;
-                    var stl = new ol.style.Style({
-                    image: new ol.style.Circle({
-                                radius: 3 + (size * 0.7), 
-                                fill: new ol.style.Fill({ color: 'rgba(255, 255, 0, 0.5)'}),
-                                stroke: new ol.style.Stroke({color: 'yellow', width: 1})
+                    if( size > 1 ) {
+                        stl = new ol.style.Style({
+                        text:  new ol.style.Text({
+                                    text: size.toString(),
+                                    fill: new ol.style.Fill({
+                                        color: '#111'
+                                    })
+                                }),          
+                        image: new ol.style.Circle({
+                                    radius: 7 + (size * 0.7), 
+                                    fill: new ol.style.Fill({ color: 'rgba(255, 255, 0, 0.5)'}),
+                                    stroke: new ol.style.Stroke({color: 'yellow', width: 1})
+                                })
+                            });
+                         }
+                    else  {   
+                         var feats = feature.getProperties().features[0].getProperties()
+                         stl =  new ol.style.Style({
+                            image: new ol.style.Icon({
+                                src: 'http://gipod.api.agiv.be/ws/v1/icon/workassignment?important=' + feats.importantHindrance.toString()
                             })
-                        });
-                    console.log(stl);
+                          });
+                        }
                     return [stl];
                     },
                 source: clusterSource});  
@@ -97,7 +114,7 @@
                         var singleProp =  props.features[0].getProperties();
                         for(var key in singleProp) {
                                 if( key == "geometry" ){continue;}
-                                msg += "<strong>"+ key + ":</strong> "+ singleProp[ key ] +"<br/>";
+                                msg += "<strong>"+ key + ":</strong> "+ singleProp[key] +"<br/>";
                             }
                     }
                     dlg.html(msg);

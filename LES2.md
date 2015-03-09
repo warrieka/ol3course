@@ -1,6 +1,6 @@
 title: WMS Lagen 
 example: examples/OL3_LES2_WMS.html
-opdracht: 
+opdracht: Onderzoek via de GetCapabilities of in QGIS wat de laagnamen van de WMS van INBO zijn en voeg hiervan 1 toe aan de kaart%3A  http://geo.agiv.be/ogc/wms/product/INBO%3Frequest=GetCapabilities%26version=1.3.0%26service=wms
 ---
 
 Les 2:  WMS Lagen 
@@ -15,8 +15,6 @@ Dit soort service genereert dynamisch een afbeelding  van de data binnen een bep
 
 In openlayers wordt een onderscheid gemaakt tussen kaartlagen en de achterliggende databron.  Van afbeeldings-databron op basis van WMS moet je minstens de *url* en de laagnamen van de gewenste kennen. 
 De laagnamen (*LAYERS*) worden opgeven als een comma-gescheiden lijst in de *param* parameter. Andere optionele parameters zijn *STYLE*, *VERSION* en *FORMAT*.
-
-> **Opdracht:** Onderzoek via de GetCapabilities xlm of in QGIS wat de laagnamen van de WMS van INBO zijn:  [http://geo.agiv.be/ogc/wms/product/INBO](http://geo.agiv.be/ogc/wms/product/INBO?request=GetCapabilities&version=1.3.0&service=wms)
 
 De databron van een WMS ziet er dan zo uit:
 
@@ -70,4 +68,3 @@ map.on('singleclick', function(evt) {
     });
 ```
 
-> [Probeer het zelf](tryit?file=examples/OL3_LES2_WMS.html)

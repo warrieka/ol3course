@@ -1,6 +1,6 @@
 title: Hallo Wereld 
-example: examples/OL3_LES1_hallo_wereld.html
-opdracht: 
+example: examples/OL3_LES1_hallo_wereld.html 
+opdracht: Zoek de coördinaten van PXL op in QGIS in WGS 84 / Pseudo Mercator en centreer en zoom hierop in
 ---
 
 Les 1: Hallo Wereld 
@@ -95,4 +95,3 @@ Alles te samen:
 </html>
 ```
 
-> [Probeer het zelf](tryit?file=examples/OL3_LES1_hallo_wereld.html)

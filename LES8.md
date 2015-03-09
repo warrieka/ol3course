@@ -1,4 +1,6 @@
 title: Een backend opzetten of zelf programmeren
+example:
+opdracht:
 ---
 Les 8: Een backend opzetten of zelf programmeren
 ===== 

@@ -41,11 +41,12 @@ app.use(
     mds.middleware({ 
     rootDirectory: __dirname,
     view: 'markdown',
-    preParse: function(markdownFile) { 
-              
+    preParse: function(markdownFile) {          
               if( markdownFile.meta )
                 return { title: markdownFile.meta.title,
-                        content: markdownFile.parseContent(), example: markdownFile.meta.example } 
+                         content: markdownFile.parseContent(), 
+                         example: markdownFile.meta.example, 
+                         opdracht: markdownFile.meta.opdracht } 
               else  return { content: markdownFile.parseContent() }
           }
       })

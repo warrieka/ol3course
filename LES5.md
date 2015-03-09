@@ -1,6 +1,6 @@
 title: Tegel lagen 
 example: examples/OL3_LES5_tiles.html
-opdracht: 
+opdracht: Vevang de grb-laag door de WMTS luchtfoto van 2012 in Lambert 72
 ---
 
 Les 5: Tegel lagen
@@ -87,6 +87,4 @@ var grbLaag =  new ol.layer.Tile({
     source: grbBron 
     });
 ``` 
-
-> [Probeer het zelf](tryit?file=examples/OL3_LES5_tiles.html)
 

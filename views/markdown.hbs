@@ -51,9 +51,15 @@
           </ul>
       </li>
       <li><a href="OPDRACHT">Opdrachten</a></li>
+      
       </ul>
-      <ul class="nav navbar-nav navbar-right" ><li>
-        <a href="tryit?file={{example}}">Probeer het zelf</a></li></ul>
+      {{#if opdracht}}
+      <ul class="nav navbar-nav navbar-right" >
+        <li title="{{opdracht}}" >
+           <a href="tryit?file={{example}}&msg={{opdracht}}">Probeer het zelf</a>
+        </li>
+      </ul>
+      {{/if}}
       </div>
     </div><!-- /.container-fluid -->
   </nav>
@@ -61,7 +67,12 @@
   <div class="container">
     {{{content}}}
   </div>
-  
+  <p>
+ {{#if opdracht}}
+   <div class="container" title="{{opdracht}}" >
+     <a href="tryit?file={{example}}&msg={{opdracht}}">Probeer het zelf</a>
+  </div>
+ {{/if}}
    <footer class="footer">
    <div class="container" style="font-size: 9px;" >
       <hr>

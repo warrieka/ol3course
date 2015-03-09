@@ -1,9 +1,11 @@
 title: Voorwoord
-example: examples/OL3_LES1_hallo_wereld.html
+example:
+opdracht: 
 ---
 Cursus Openlayers 3 aan de hand van GDI-webdiensten
 ====
 Auteur: Kay Warrie
+
 Voorwoord 
 ----
 

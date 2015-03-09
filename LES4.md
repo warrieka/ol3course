@@ -1,6 +1,6 @@
 title: Vector lagen
 example: examples/OL3_LES4_vector.html
-opdracht: 
+opdracht: voeg ook de attributen voor GEMEENTE en ADRES toe aan tooltip
 ---
 
 Les 4: Vector lagen
@@ -94,4 +94,3 @@ $(map.getViewport()).on('mousemove', function(evt) {
 });
 ```
 
-> [Probeer het zelf](tryit?file=examples/OL3_LES4_vector.html)
