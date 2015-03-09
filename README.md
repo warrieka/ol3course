@@ -1,3 +1,5 @@
+title: README
+---
 Cursus Openlayers 3 aan de hand van GDI-webdiensten
 ====
 Auteur: Kay Warrie
