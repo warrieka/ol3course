@@ -33,8 +33,8 @@
         #codeEdit, #resultFrame { overflow: hidden; 
                                   border: 1px solid black; border-collapse: collapse; }
 
-        iframe {display:block; width: 100%; height: 500px;}
-        .CodeMirror { width: 100%; border-top: 1px solid #888; border-bottom: 1px solid #888;}
+        iframe {display:block; width: 100%; height: 100%;}
+        .CodeMirror { width: 100%; height: 100%; border-top: 1px solid #888; border-bottom: 1px solid #888;}
     </style>
 </head>
 
@@ -98,7 +98,8 @@
    </footer>
 <!--end footer-->   
    <script>
-        $('#widget').height(500).split({orientation:'vertical', limit:100});
+        $('#widget').height( window.innerHeight - 250 ).split({orientation:'vertical', limit:100});
+        $( window ).resize(function() { $('#widget').height( window.innerHeight - 250 ); });
         
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
