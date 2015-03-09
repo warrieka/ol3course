@@ -1,5 +1,6 @@
 title: Geolocaliseren op basis van adres
 example: examples/OL3_LES6_geocoding.html
+opdracht: 
 ---
 
 Les 6: Geolocaliseren op basis van adres

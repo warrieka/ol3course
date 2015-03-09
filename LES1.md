@@ -1,5 +1,6 @@
 title: Hallo Wereld 
 example: examples/OL3_LES1_hallo_wereld.html
+opdracht: 
 ---
 
 Les 1: Hallo Wereld 

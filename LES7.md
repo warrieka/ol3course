@@ -1,5 +1,6 @@
 title: Vector lagen op maat
 example: examples/OL3_LES7_custom_layerSource.html
+opdracht: 
 ---
 
 Les 7:  Vector lagen op maat

@@ -13,8 +13,11 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.spacelab.min.css" type="text/css"/>
     <link href="/css/font-awesome.min.css" rel="stylesheet"  type="text/css">
-    <script src="src/bootstrap.min.js"></script>
-
+    <script src="/src/bootstrap.min.js"></script>
+    <!--splitter-->
+    <script src="/src/jquery.splitter-0.14.0.js"></script>
+    <link href="/css/jquery.splitter.css" rel="stylesheet"/>
+    
     <!--codemirror code editor-->
     <link rel="stylesheet" href="css/codemirror.css">
     <script src="src/codeMirror.js"></script>
@@ -24,19 +27,19 @@
     <script src="src/codeMirror/javascript.js"></script> 
     
     <style type="text/css">
-        table { margin: 0 auto; width:99%} 
-        
+        #widget { margin: 0 auto; width:99%} 
+        input { margin: 3px }
         #code { visibility: hidden; height: 0px}
-        #codeEdit, #resultFrame {  border: 1px solid black;
-                                border-collapse: collapse; }
-        #codeEdit{ width: 500px  }
+        #codeEdit, #resultFrame { overflow: hidden; 
+                                  border: 1px solid black; border-collapse: collapse; }
+
         iframe {display:block; width: 100%; height: 500px;}
-        .CodeMirror { width: 500px; border-top: 1px solid #888; border-bottom: 1px solid #888;}
+        .CodeMirror { width: 100%; border-top: 1px solid #888; border-bottom: 1px solid #888;}
     </style>
 </head>
 
 <body>
-  <!-- navbar -->
+<!-- navbar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -69,36 +72,34 @@
     </div>
   </nav>
       <br/><br/><br/>
-
+<!--end navbar-->
+      
     <h1>Probeer het zelf</h1>
     <form id="tryitform" name="tryitform" action="result" target="view" method="post">
-    <table >
-        <tr>
-            <td> <input type="button"  onclick="manageSubmit()" value="Probeer het" /> </td>
-            <td> <strong>Preview</strong> </td>
-        </tr>
-        <tr>
-            <td id="codeEdit">
-            </td>
-            <td id="resultFrame">
-                <iframe  frameborder="0" src="result" name="view" id="view"> </iframe>
-            </td>
-        </tr>
-    </table>
+    <input type="button"  onclick="manageSubmit()" value="Probeer het" />
+    <div id="widget">
+         <div id="codeEdit"></div>
+         <div id="resultFrame">
+              <iframe  frameborder="0" src="result" name="view" id="view"> </iframe>
+         </div>
+    </div>
     <textarea id="code" name="code"> </textarea> 
     </form>
      
+<!--footer-->
    <footer class="footer">
    <div class="container" style="font-size: 9px;" >
-      <hr>
+      <hr/>
       <div class="row">
          Kay Warrie &copy; 2015 | email:<a href="mailto:kaywarrie@gmail.com" > kaywarrie@gmail.com</a>         
          <p class="pull-right"><a href="#">Terug naar boven</a></p>
       </div>
    </div>
    </footer>
-     
+<!--end footer-->   
    <script>
+        $('#widget').height(500).split({orientation:'vertical', limit:100});
+        
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
