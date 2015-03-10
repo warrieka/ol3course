@@ -1,6 +1,6 @@
 title: WMS Lagen 
 example: examples/OL3_LES2_WMS.html
-opdracht: Onderzoek via de GetCapabilities of in QGIS wat de laagnamen van de WMS van INBO zijn en voeg hiervan 1 toe aan de kaart%3A  http://geo.agiv.be/ogc/wms/product/INBO%3Frequest=GetCapabilities%26version=1.3.0%26service=wms
+opdracht: Onderzoek via de GetCapabilities of in QGIS wat de laagnamen van de WMS van INBO zijn en voeg hiervan de met title=BWK 1 - Zones, toe aan de kaart%3A  http://geo.agiv.be/ogc/wms/product/INBO%3Frequest=GetCapabilities%26version=1.3.0%26service=wms
 ---
 
 Les 2:  WMS Lagen 

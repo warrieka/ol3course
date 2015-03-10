@@ -1,17 +1,29 @@
 title: Opdrachten
-example: opdracht1.html
 ---
 Opdrachten
 ====
+Via de "probeer het zelf" - tryit editor
+----
+VIa deze browser toepassing kan je op een veilige, niet persistente manier experimenteren met de code.
 
-Voor deze opdracht gaan we de tryid editor niet gebruiken maar gaan de bron bestanden zelf bewerken.
+ - Opdracht 1: [Zoek de coördinaten van PXL op in QGIS in WGS 84 / Pseudo Mercator en centreer en zoom hierop in](http://localhost:3000/tryit?file=examples/OL3_LES1_hallo_wereld.html&msg=Zoek%20de%20co%C3%B6rdinaten%20van%20PXL%20op%20in%20QGIS%20in%20WGS%2084%20/%20Pseudo%20Mercator%20en%20centreer%20en%20zoom%20hierop%20in)
+ - Opdracht 2: [Onderzoek via de GetCapabilities of in QGIS wat de laagnamen van de WMS van INBO zijn en voeg hiervan de met title=BWK 1 - Zones, toe aan de kaart]( http://localhost:3000/tryit?file=examples/OL3_LES2_WMS.html&msg=Onderzoek%20via%20de%20GetCapabilities%20of%20in%20QGIS%20wat%20de%20laagnamen%20van%20de%20WMS%20van%20INBO%20zijn%20en%20voeg%20hiervan%20de%20met%20title=BWK%201%20-%20Zones,%20toe%20aan%20de%20kaart%3A%20%20http://geo.agiv.be/ogc/wms/product/INBO%3Frequest=GetCapabilities%26version=1.3.0%26service=wms)
+ - Opdracht 3: [Voeg de coördinaten in WGS84 / Pseudomercator aan de popup](http://localhost:3000/tryit?file=examples/OL3_LES3_coordnaatsystemen.html&msg=Voeg%20de%20co%C3%B6rdinaten%20in%20WGS84%20/%20Pseudomercator%20aan%20de%20popup)
+ - Opdracht 4: [Voeg ook de attributen voor GEMEENTE en ADRES toe aan tooltip](http://localhost:3000/tryit?file=examples/OL3_LES4_vector.html&msg=voeg%20ook%20de%20attributen%20voor%20GEMEENTE%20en%20ADRES%20toe%20aan%20tooltip)
+ - Opdracht 5: [Vervang de grb-laag door de WMTS luchtfoto van 2012 in Lambert 72](http://localhost:3000/tryit?file=examples/OL3_LES5_tiles.html&msg=Vevang%20de%20grb-laag%20door%20de%20WMTS%20luchtfoto%20van%202012%20in%20Lambert%2072)
+ - Opdracht 6: [Zoek poi in plaats van op adres, geef de locatie in lambert coordinaten mee in popup.](http://localhost:3000/tryit?file=examples/OL3_LES6_geocoding.html&msg=Zoek%20poi%20in%20plaats%20van%20op%20adres,%20geef%20de%20locatie%20in%20lambert%20coordinaten%20mee%20in%20popup.)
+ - Opdracht 7: [Maak een tweede laag met de manifestaties, gebruik andere kleuren en symbolen](http://localhost:3000/tryit?file=examples/OL3_LES7_custom_layerSource.html&msg=Maak%20een%20tweede%20laag%20met%20de%20manifestaties,%20gebruik%20andere%20kleuren%20en%20symbolen)
+
+Geïntegreerde opdracht:
+-----
+
+Voor deze opdracht gaan we de tryit editor niet gebruiken maar gaan de bron bestanden zelf bewerken.
 Er is een template om te starten is voorzien in de folder public: 
 
 - **opdracht1.html:** normaal gezien moet je hier niets aan toevoegen, maar het mag. 
 - **opdracht1.js:** de javascript code, voeg de functies beschreven in onderstaande stappen aan toe. 
 
-Stappen:
------
+###Stappen:
 
 1. Maak een kaart gecentreerd op locatie 488708, 6657857 (WebMercator) en met zoom schaal 11
 2. Maak de achtergrondkaart de luchtfoto van AGIV.

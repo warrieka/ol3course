@@ -1,6 +1,6 @@
 title: Tegel lagen 
 example: examples/OL3_LES5_tiles.html
-opdracht: Vevang de grb-laag door de WMTS luchtfoto van 2012 in Lambert 72
+opdracht: Vervang de grb-laag door de WMTS luchtfoto van 2012 in Lambert 72
 ---
 
 Les 5: Tegel lagen

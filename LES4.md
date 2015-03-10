@@ -1,6 +1,6 @@
 title: Vector lagen
 example: examples/OL3_LES4_vector.html
-opdracht: voeg ook de attributen voor GEMEENTE en ADRES toe aan tooltip
+opdracht: Voeg ook de attributen voor GEMEENTE en ADRES toe aan tooltip
 ---
 
 Les 4: Vector lagen
