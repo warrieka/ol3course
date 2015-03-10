@@ -21,7 +21,7 @@
   <body>
 
     <div id="map"></div>
-    <div id="infoDlg" class="dlg" title="Hoogte"></div>
+    <div id="infoDlg" class="dlg" title="Coördinaten"></div>
     <script type="text/javascript">
     $( ".dlg" ).dialog({
         autoOpen: false,
@@ -62,7 +62,7 @@
         var lam = evt.coordinate ;
         
         var mgs= "Belgische Lambert coordinaten: <br/>";
-        mgs += Math.round( lam[0] ) +" , "+ Math.round( lam[1]) + "<br/><br/>";
+        mgs += Math.round( lam[0] ) +" , "+ Math.round( lam[1]) + "<br/>";
         mgs += "Geografische coördinaten: <br/>";
         mgs += Math.round( wgs[0] *100 )/100 +"° , "+ Math.round( wgs[1] *100 )/100 + "°<br/>";
         

@@ -15,7 +15,6 @@ Een type GIS-server-infrastructuur bestaat meestal uit 3 lagen:
 
 ![](/images/gis_architecture.png)
 
-
 Een backend in de cloud
 ----
 
@@ -61,8 +60,13 @@ Open source API's
 
 ###nodeJs (javascript)
 - **[turfJs](http://turfjs.org/)** geometrische operaties in node of rechtstreeks in de browser.
-- **[proj4js](https://github.com/proj4js/proj4js)** projecties in node of rechtstreeks in de browser.
-
+- **[proj4js](https://github.com/proj4js/proj4js)** projecties in node of rechtstreeks in de browser, een vertaling van de C-versie naar javascript.
+- ESRI is tegenwoordig ook erg into nodeJs: 
+    - **[Geoservices](https://github.com/Esri/geoservices-js)** Tool om ESRI-services aan te spreken vanuit een nodejs omgeving. 
+    - **[Terraformer](http://terraformer.io)** Allerlei tools om te converteren tussen ESRI-webservice formaten en Open source formaten.
+    - **[node-geoservices-adaptor](https://github.com/Esri/node-geoservices-adaptor)** converteer een webservice naar ESRI-service. 
+    - **[geotrigger-js](https://github.com/Esri/geotrigger-js)** via deze tool kan je werken met de realtime geotrigger-service van ESRI in node. 
+    
 ###C-sharp
 - **[Net Topology Suite](https://github.com/NetTopologySuite/NetTopologySuite)** geometrische operaties
 - **[sharpmap](http://sharpmap.codeplex.com/)** rendering + data-toegang.
