@@ -18,7 +18,7 @@ Een type GIS-server-infrastructuur bestaat meestal uit 3 lagen:
 Een backend in de cloud
 ----
 
-Er zijn tegenwoordig heel bedrijven die je data opslaan op hun server-infrastructuur en je toelaten om dit via een gebruiksvriendelijke webinterface te beheren. Daarnaast zijn ook al de data in deze webtoepassingen ook toegankelijk via een web-api om eigen toepassingen mee te ontwikkelen.
+Er zijn tegenwoordig heel bedrijven die je data opslaan op hun server-infrastructuur en je toelaten om dit via een gebruiksvriendelijke webinterface te beheren. Daarnaast is ook steeds de data in deze webtoepassingen toegankelijk via een web-api, om eigen toepassingen mee te ontwikkelen.
 
 - **[Cartodb](http://cartodb.com/)** is een platform dat erg gericht is op de visualisatie van vectordata. 
 Via Spatial SQL kan je allerlei analyses en bewerkingen op je data doen. 

@@ -1,9 +1,9 @@
-title: Vector lagen op maat
+title: Vectorlagen op maat
 example: examples/OL3_LES7_custom_layerSource.html
 opdracht: Maak een tweede laag met de manifestaties, gebruik andere kleuren en symbolen
 ---
 
-Les 7:  Vector lagen op maat
+Les 7:  Vectorlagen op maat
 =====
 Openlayers ondersteunt allerlei standaard tekstformaten voor de opbouw van Vectorlagen, zoals GeoJSON, WKT, KML en GML.
 Veel webservices volgen om allerlei redenen deze structuren niet of maar gedeeltelijk. In dat geval zal je zelf het bestand moeten parseren in javascript een omzetten naar Vectorlaag-bron.

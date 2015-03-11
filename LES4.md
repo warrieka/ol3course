@@ -1,9 +1,9 @@
-title: Vector lagen
+title: Vectorlagen
 example: examples/OL3_LES4_vector.html
-opdracht: Voeg ook de attributen voor GEMEENTE en ADRES toe aan tooltip
+opdracht: Vervang de laagbron met de file /resource/zendmast.geojson, gebruik de iconen selection-icon.png en marker-icon.png. Voeg ook de attributen voor GEMEENTE en ADRES toe aan statusbalk 
 ---
 
-Les 4: Vector lagen
+Les 4: Vectorlagen
 ==== 
 Vectoriele gisdata kan worden binnen gehaald als gestructureerde tekst in plaats van een afbeelding.
 

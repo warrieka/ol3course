@@ -22,10 +22,10 @@ Ook zijn er natuurlijk dingen zoals Google en Bing maps, maar deze zijn niet ger
 Inhoudsopgave 
 -----
  1. [Les 1: Hallo Wereld](LES1)
- 2. [Les 2: WMS lagen](LES2)
+ 2. [Les 2: WMS-lagen](LES2)
  3. [Les 3: Werken met coordinaat-systemen](LES3)
- 4. [Les 4: Vector lagen](LES4) 
- 5. [Les 5: Tegel lagen](LES5) 
+ 4. [Les 4: Vectorlagen](LES4) 
+ 5. [Les 5: Tegellagen](LES5) 
  6. [Les 6: Geolocatie op basis van adres](LES6) 
  7. [Les 7: Vectorlagen op maat](LES7) 
  8. [Les 8: Een backend opzetten of zelf programmeren](LES8)

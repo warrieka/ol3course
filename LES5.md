@@ -1,9 +1,9 @@
-title: Tegel lagen 
+title: Tegellagen 
 example: examples/OL3_LES5_tiles.html
 opdracht: Vervang de grb-laag door de WMTS luchtfoto van 2012 in Lambert 72
 ---
 
-Les 5: Tegel lagen
+Les 5: Tegellagen
 ==== 
 
 Een probleem met dynamisch genereerde Afbeeldingsdiensten zoals WMS is het dat even duurt om deze te generen. Zeker bij bij complexe of veel bevraagde services.
@@ -13,7 +13,7 @@ Deze tegel-caches volgens een specifieke structuur waarbij binnen een bepaald ex
 
 ![](/images/Tiling.png)
 
-Tegel lagen met een GoogleMaps-achtige structuur:
+Tegellagen met een GoogleMaps-achtige structuur:
 ----
 Vele tegelkaarten worden opgebouwd op dezelfde manier als achtergrond-kaarten van googlemaps. 
 In dat geval kan je met een eenvoudig url-sjabloon aangeven hoe de link naar de afbeeldingen eruit ziet.

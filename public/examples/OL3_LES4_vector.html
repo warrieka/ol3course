@@ -39,20 +39,22 @@
         </div>
      </div> 
      <script type="text/javascript">
-        /*de databron*/
+        /*de databron: de WFS van de Bosreservaten van MercatorNet*/
         var vectorSource  = new ol.source.GeoJSON({
             projection: 'EPSG:3857',
-            url: "/resource/zendmast.geojson"
+            url: "https://www.mercator.vlaanderen.be/raadpleegdienstenmercatorpubliek/ps/ows?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=ps:ps_bosres&SRSNAME=EPSG:3857&outputFormat=json"
         });
 
         
-       var stijl = new ol.style.Style({
-            image: new ol.style.Icon({
-                anchor: [0.5,1],
-                src: '/images/marker-icon.png'
+        var stijl = new ol.style.Style({
+            stroke: new ol.style.Stroke({
+            color: 'green',
+            width: 2
+            }),
+            fill: new ol.style.Fill({
+            color: 'rgba(0, 0, 255, 0.1)'
             })
         });
-
         var vectorLaag = new ol.layer.Vector({
             source: vectorSource,
             style: stijl
@@ -69,8 +71,8 @@
                 layers: [ grb , vectorLaag],
                 view: new ol.View({
                     projection: 'EPSG:3857',
-                    center: ol.proj.transform([4,51], 'EPSG:4326', 'EPSG:3857'),
-                    zoom: 12,
+                    center: ol.proj.transform([4.5,51], 'EPSG:4326', 'EPSG:3857'),
+                    zoom: 10,
                     maxZoom: 21
                 })
             });
@@ -86,7 +88,7 @@
             });
 
             if (feature) {
-                $('#info').html( feature.get('OPERATOR'));
+                $('#info').html( feature.get('NAAM'));
             } else {
                 $('#info').html( '' );
                 }
@@ -97,17 +99,20 @@
             layers: [vectorLaag], 
             multi: true ,
             style: new ol.style.Style({
-                image: new ol.style.Icon({
-                        anchor: [0.5,1],
-                        src: '/images/selection-icon.png'
+                    stroke: new ol.style.Stroke({
+                      color: 'blue',
+                      width: 2
+                    }),
+                    fill: new ol.style.Fill({
+                      color: 'rgba(0, 0, 255, 0.1)'
                     })
-                })
+                  })
         });  
         map.addInteraction(select);  
 
         var draw = new ol.interaction.Draw({
             source: vectorSource,
-            type: 'Point'
+            type: 'Polygon'
         }); 
                 
         var modify = new ol.interaction.Modify({
@@ -117,7 +122,7 @@
          
         function deleteSelected()
         {
-            select.getFeatures().forEach( function( feat, index , col ){
+            select.getFeatures().forEach( function( feat ){
                 vectorSource.removeFeature( feat )
             });
             select.getFeatures().clear();
