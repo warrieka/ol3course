@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Les 7</title>
+    <title>Les 7: Eigen laagbronnen</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="/css/ol.css" type="text/css">
     <script src="/src/ol-debug.js" type="text/javascript"></script>
      <style>
-        #map { position: absolute; top:0;bottom:0;right:0;left:0;  
-        background-color: #b0c4de;} 
+        #map { position: absolute; top:0;bottom:0;right:0;left:0; background-color: #b0c4de;} 
      </style>
   </head>
   <body> 
@@ -43,7 +42,7 @@
                         image: new ol.style.Circle({
                                     radius: 7 + (size * 0.7), 
                                     fill: new ol.style.Fill({ color: 'rgba(255, 255, 0, 0.5)'}),
-                                    stroke: new ol.style.Stroke({color: 'yellow', width: 1})
+                                    stroke: new ol.style.Stroke({color: 'red', width: 1})
                                 })
                             });
                          }
@@ -75,7 +74,7 @@
                 $.each(data, function(index, row){
                     var geom = geojsonReader.readGeometry(row.coordinate);
                     delete row.coordinate; //niet meer nodig
-                    row.geometry = geom; //voeg ol geometrie toe
+                    row.geometry = geom; //voeg openlayers geometrie toe
                     var feature = new ol.Feature( row );
                     features.push( feature );
                 });
@@ -107,10 +106,7 @@
                 if (vfeature && vlayer == vectorLayer ) {
                     var msg = "";
                     var props = vfeature.getProperties();
-                    if(  props.features.length > 1 ){
-                        msg = "Cluster met "+ props.features.length +" lagen";
-                    }
-                    else {
+                    if(  props.features.length == 1 ){
                         var singleProp =  props.features[0].getProperties();
                         for(var key in singleProp) {
                                 if( key == "geometry" ){continue;}

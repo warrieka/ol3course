@@ -3,6 +3,7 @@
   <head>
     <title>Les 2</title>
     <meta charset="utf-8">
+    <!--jquery-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -48,8 +49,8 @@
         hoogte.setVisible( !hoogte.getVisible() );
         $( "#dhmlegende").toggle()
     });
+    
     /*openlayers gebruiken om de kaart te maken*/
-
     var dhmBron = new ol.source.ImageWMS({
                 url: 'http://geo.agiv.be/inspire/wms/hoogte',
                 params: {'LAYERS': 'DHM', VERSION: '1.3.0'}

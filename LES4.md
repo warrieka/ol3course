@@ -5,10 +5,13 @@ opdracht: Voeg ook de attributen voor GEMEENTE en ADRES toe aan tooltip
 
 Les 4: Vector lagen
 ==== 
-Sommige gisdata kan worden binnen gehaald als gestructureerde tekst in plaats van een afbeelding.
+Vectoriele gisdata kan worden binnen gehaald als gestructureerde tekst in plaats van een afbeelding.
+
+Types vectorlagen
+----
 
 Er bestaan enkele standaard formaten die openlayers onmiddellijk van url kan openen.  Het gaat onder meer om [Geojson](http://geojson.org/), Topojson, GML, GPX en KML.  Vooral Geojson is een veel gebruikt formaat in WebGIS. 
-Je moet ook steeds de gewenste coördinaatsysteem voor de vectorlaag opgeven, normaal gezien is dit  de kaartprojectie. 
+Je moet ook steeds het gewenste coördinaatsysteem voor de vectorlaag opgeven, normaal gezien is dit de kaartprojectie. 
 ```javascript
 var geojsonBron = new ol.source.GeoJSON({
     projection: map.getView().getProjection(),
@@ -22,6 +25,7 @@ Het object new *ol.style.Style* is een collectie van stijlen.
 
 ```javascript
 var marker =  new ol.style.Icon({ 
+    anchor: [0.5,1],
 	src: 'data/icon.png'
   });
 var stijl = new ol.style.Style({
@@ -56,18 +60,45 @@ var vectorLaag = new ol.layer.Vector({
   style: stijl    
 });
 ```
-Je kun een stijl ook toewijzen als callback functie op de feature, dan kan je op basis van de eigenschappen van de feature de inkleuring doen of zelf een label toewijzen. In het onderstaande voorbeeld zie hoe je vanaf resolutie 5000 de  gemeenten worden gelabeld.
+Je kun een stijl ook toewijzen als callback functie op de feature, dan kan je op basis van de eigenschappen van de feature de inkleuring doen of zelf een label toewijzen. In het onderstaande voorbeeld zie hoe je vanaf resolutie 5 de bron gemeenten, de features worden gelabeld met het attribuut naam.
 ```javascript
 var vectorLaag = new ol.layer.Vector({
-  source: geojsonBron,
-  style: function(feature, resolutie) {
-    stijl.getText()
-	 .setText(resolutie < 5000 ? feature.get('naam'):'');
-    return stijl;
-  }
+  source: gemeenten,
+  style: function(feature, resolutie) {  
+            var stijl;
+            if( resolutie >= 5 ) {
+                stijl = new ol.style.Style({
+                text:  new ol.style.Text({
+                            text: feature.get('naam'),
+                            fill: new ol.style.Fill({
+                                color: '#111'
+                            })
+                        }),          
+                image: new ol.style.Circle({
+                            radius: 7 + (size * 0.7), 
+                            fill: new ol.style.Fill({ color: 'rgba(255, 255, 0, 0.5)'}),
+                            stroke: new ol.style.Stroke({color: 'red', width: 1})
+                        })
+                    });
+                 }
+            else {
+                stijl = new ol.style.Style({         
+                        image: new ol.style.Circle({
+                            radius: 7 + (size * 0.7), 
+                            fill: new ol.style.Fill({ color: 'rgba(255, 255, 0, 0.5)'}),
+                            stroke: new ol.style.Stroke({color: 'red', width: 1})
+                        })
+                    });
+                 }
+            }
+            return stijl;
+        }
  });
-
 ``` 
+
+Identificeren
+----
+
 Je kunt ook op vectorlagen  ook een identificeren via een muis klik.
 Hier zien hoe je een div met id="info" kunt bevolken met de waarde 'naam' na een muisklik op de  kaart:
 ```javascript
@@ -94,3 +125,55 @@ $(map.getViewport()).on('mousemove', function(evt) {
 });
 ```
 
+Vectorlagen bewerken 
+----
+Vectorlagen kan je ook bewerken. Dit kan je door middel van de *interaction* objecten, die je toevoegt aan het map-object.
+
+Met *ol.interaction.Draw* kan aan een laagbron nieuwe objecten toevoegen door ze op de kaart in te tekenen. 
+
+```javascript
+var draw = new ol.interaction.Draw({
+    source: geojsonBron,
+    type: 'Point'
+});
+map.addInteraction(draw);  
+```
+
+Om een laag te wijzingen of verwijder moet je eerst het gewenste object selecteren. 
+Let op standaard gebruiken zowel draw als select de *singlemouse* als trigger, ze kunt ze niet tegelijk actief hebben. 
+Dit kan met de *ol.interaction.select* interactie. In dit object geef je aan met optie layers welke lagen selecteerbaar zijn. 
+Met optie multi geef je aan of meer dan 1 feature te gelijk wilt kunnen selecteren. Je kunt ook de stijl van de geselecteerde features aangegeven. 
+
+```javascript
+var select = new ol.interaction.Select({
+    layers: [vectorLaag], 
+    multi: true ,
+    style: new ol.style.Style({
+        image: new ol.style.Icon({
+                anchor: [0.5,1],
+                src: '/images/selection-icon.png'
+            })
+        })
+});  
+map.addInteraction(select);  
+```
+
+De selectie is een collectie van features. Op deze selectie kan je dan allerlei bewerkngen uitvoeren, zoals deze objecten verwijderen uit de laag. Via de methode getFeatures van de interactie krijg je toegang tot de selectie. 
+```javascript
+select.getFeatures().forEach( function( feat, index , col ){
+    vectorSource.removeFeature( feat )
+});
+select.getFeatures().clear();
+```
+
+Geselecteerde features kan je bewerken met de *ol.interaction.modify* interactie. 
+Voor een punten laag is dit enkel verplaatsen, aan polygonen kan je ook vertices toevoegen of verwijderen. 
+```javascript
+var modify = new ol.interaction.Modify({
+        features: select.getFeatures()
+      });
+map.addInteraction(modify);  
+```
+
+Om wijzingen en nieuwe features in vectorlagen op te slaan, moet je dit wegschrijven naar je server. 
+Dit doe je meestal met webservice die je zelf maat schrijft, al bieden sommige providers zoals cartoDB of ESRI arcgis server wel webservices aan die optioneel ook insert en update query's tegen je data kunnen uitvoeren. 

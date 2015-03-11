@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Les 6</title>
+    <title>Les 6: Adressen zoeken</title>
     <meta charset="utf-8">
+    <!--jquery-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -21,9 +22,9 @@
   
   </head>
   <body>
-    <input id="geocoder"/>     
+    <input id="geocoder" placeholder="adres" />     
     <div id="map"></div>
-    <div id="info"></div>
+    <div id="info" title="Adres"></div>
         
     <script type="text/javascript">
     $( "#info" ).dialog({autoOpen: false});
@@ -31,61 +32,61 @@
     /*geocoder*/
     var marker;
     $( "#geocoder" ).autocomplete({
-    source: function( request, response ) {
-        $.ajax({
-        url: "http://loc.api.geopunt.be/geolocation/Suggestion",
-        dataType: "jsonp",
-        data: {
-            q: request.term ,
-            c: 10
+        source: function( request, response ) {
+            $.ajax({
+                url: "http://loc.api.geopunt.be/geolocation/Suggestion",
+                dataType: "jsonp",
+                data: {
+                    q: request.term ,
+                    c: 10
+                },
+            success: function( data ) {
+                var straten = data.SuggestionResult;
+                
+                response( straten ); //moet een array van strings zijn
+                }
+          });
         },
-        success: function( data ) {
-        var straten = data.SuggestionResult;
-        
-        response( straten );
-        }
-      });
-    },
-    minLength: 2,
-    select: function( event, ui ) {
-        var adres = ui.item.label;
-        
-        $.ajax({
-            url: "http://loc.api.geopunt.be/geolocation/Location",
-            dataType: "jsonp",
-            data: {
-            q: adres ,
-            c: 1
-        },
-        success: function( data ) {
-        var locs = data.LocationResult;
-        if( locs.length ){
-            var loc = locs[0];
-            var coordinates = ol.proj.transform([loc.Location.Lon_WGS84, loc.Location.Lat_WGS84], 
-                                                                                'EPSG:4326', 'EPSG:3857');        
-            if(marker){ featureOverlay.getSource().removeFeature(marker); }
-            marker = new ol.Feature({
-                geometry: new ol.geom.Point(coordinates), 
-                name: loc.FormattedAddress
-             });
+        minLength: 2,
+        select: function( event, ui ) {
+            var adres = ui.item.label;
+            
+            $.ajax({
+                url: "http://loc.api.geopunt.be/geolocation/Location",
+                dataType: "jsonp",
+                data: {
+                    q: adres ,
+                    c: 1
+                },
+            success: function( data ) {
+            var locs = data.LocationResult;
+            if( locs.length > 0 ){
+                var loc = locs[0];
+                var coordinates = ol.proj.transform([loc.Location.Lon_WGS84, loc.Location.Lat_WGS84], 
+                                                                                    'EPSG:4326', 'EPSG:3857');        
+                if(marker){ vectorLaag.getSource().removeFeature(marker); }
+                marker = new ol.Feature({
+                    geometry: new ol.geom.Point(coordinates), 
+                    name: loc.FormattedAddress
+                 });
 
-            featureOverlay.getSource().addFeature(marker);       
-            
-            var view= map.getView();
-            
-            var lowerLeft =  ol.proj.transform([loc.BoundingBox.LowerLeft.Lon_WGS84, 
-                                                loc.BoundingBox.LowerLeft.Lat_WGS84], 'EPSG:4326', 'EPSG:3857');
-            var upperRight = ol.proj.transform([loc.BoundingBox.UpperRight.Lon_WGS84,
-                                                loc.BoundingBox.UpperRight.Lat_WGS84], 'EPSG:4326', 'EPSG:3857')
-            view.fitExtent( [lowerLeft[0] , lowerLeft[1] ,
-                             upperRight[0], upperRight[1]],  map.getSize()) 
-            }
-          }
-        })
-      },
+                vectorLaag.getSource().addFeature(marker);       
+                
+                var lowerLeft =  ol.proj.transform([loc.BoundingBox.LowerLeft.Lon_WGS84, 
+                                                    loc.BoundingBox.LowerLeft.Lat_WGS84], 'EPSG:4326', 'EPSG:3857');
+                var upperRight = ol.proj.transform([loc.BoundingBox.UpperRight.Lon_WGS84,
+                                                    loc.BoundingBox.UpperRight.Lat_WGS84], 'EPSG:4326', 'EPSG:3857')
+               
+                var view= map.getView();
+                view.fitExtent( [lowerLeft[0] , lowerLeft[1] ,
+                                 upperRight[0], upperRight[1]],  map.getSize()) 
+                }
+              }
+            })
+          },
     });  
     
-    /*reverse*/
+    /*reverse geocoder*/
     var displayFeatureInfo = function(coordinate) {
         $("#info").html("resulten aan het ophalen ...").dialog( "open" );
         
@@ -95,7 +96,7 @@
         url: "http://loc.api.geopunt.be/geolocation/Location",
         dataType: "jsonp",
         data: {
-            latlon: latlon_wgs[1] +","+ latlon_wgs[0] ,
+            latlon: latlon_wgs[1].toString() +","+ latlon_wgs[0].toString() ,
             c: 1
         },
         success: function( data ) {
@@ -106,12 +107,12 @@
                                     straten[0].Location.Lat_WGS84], 'EPSG:4326', 'EPSG:3857');
                 $("#info").html(straat);
                 
-                if(marker){ featureOverlay.getSource().removeFeature(marker); }
+                if(marker){ vectorLaag.getSource().removeFeature(marker); }
                 marker = new ol.Feature({
                     geometry: new ol.geom.Point(coordinates), 
                 });
 
-                featureOverlay.getSource().addFeature(marker);      
+                vectorLaag.getSource().addFeature(marker);      
             }
             else {
               $("#info").html("Niets gevonden"); 
@@ -130,23 +131,18 @@
             })    
         }); 
     
-    var iconStyle = new ol.style.Style({
-            image: new ol.style.Icon({
-            anchor: [0.5, 46],
-            anchorXUnits: 'fraction',
-            anchorYUnits: 'pixels',
-            opacity: 0.9,
-            src: '/images/marker-icon.png'
-            })
-        });
-    
-    var featureOverlay = new ol.layer.Vector({
-            style: iconStyle, source: new ol.source.Vector(),       
-        });
+    var vectorLaag = new ol.layer.Vector({
+            style: new ol.style.Style({
+                image: new ol.style.Icon({
+                    src: '/images/marker-icon.png'
+                    })
+                }), 
+            source: new ol.source.Vector(),       
+            });
     
     var map = new ol.Map({
             target: 'map',
-            layers: [ grb , featureOverlay ],
+            layers: [ grb , vectorLaag ],
             view: new ol.View({
                 projection: 'EPSG:3857',
                 center: ol.proj.transform([4,51], 'EPSG:4326', 'EPSG:3857'),
