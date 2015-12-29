@@ -1,3 +1,6 @@
+.kdev4/ 
+.directory
+*.kdev4
  
 # Logs
 logs
