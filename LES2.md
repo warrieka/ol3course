@@ -1,6 +1,6 @@
 title: WMS-Lagen 
 example: examples/OL3_LES2_WMS.html
-opdracht: Onderzoek via de GetCapabilities of in QGIS wat de laagnamen van de WMS van INBO zijn en voeg hiervan de met title=BWK 1 - Zones, toe aan de kaart%3A  http://geo.agiv.be/ogc/wms/product/INBO%3Frequest=GetCapabilities%26version=1.3.0%26service=wms
+opdracht: Onderzoek via de GetCapabilities of in QGIS wat de laagnamen van de WMS van INBO zijn en voeg hiervan de laag met title=BWK 1 - Zones, toe aan de kaart%3A http://geoservices.informatievlaanderen.be/raadpleegdiensten/inbo/wms
 ---
 
 Les 2:  WMS Lagen 
@@ -20,7 +20,7 @@ De databron van een WMS ziet er dan zo uit:
 
 ```javascript
 var inboBron = new ol.source.ImageWMS({
-            url: 'http://geo.agiv.be/ogc/wms/product/INBO',
+            url: 'http://geoservices.informatievlaanderen.be/raadpleegdiensten/inbo/wms',
             params: {LAYERS: 'BWK2Zone,B1775', VERSION: '1.3.0'}
         });
 ```
@@ -44,7 +44,7 @@ Je kunt de legende meestal als png, jpeg of svg ophalen.
 Om de INBO-laag *BWK2Zone* op  te halen als png deze er zo uit:
 ```html
 <img id="legende" 
- src="http://geo.agiv.be/ogc/wms/product/INBO?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=BWK2Zone">
+ src="http://geoservices.informatievlaanderen.be/raadpleegdiensten/inbo/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=BWK2Zone">
 </img>
 ```
 WMS features identificeren

@@ -28,9 +28,11 @@
       <div class="ui-widget">
         <input type="checkbox" checked id="dhmChk"><label for="dhmChk">DHM</label>
       </div>
-      <img id="dhmlegende" src="http://geo.agiv.be/inspire/wms/Hoogte?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=DHM"/>
+      <img id="dhmlegende" 
+      src="http://geoservices.informatievlaanderen.be/raadpleegdiensten/dhmv/wms?REQUEST=GetLegendGraphic&request=GetLegendGraphic%26version=1.3.0&format=image/png&layer=DHMVII_DSM_1m" />
       <div>GRB legende</div>
-      <img id="grblegende" width=400 src="http://grb.agiv.be/geodiensten/raadpleegdiensten/GRB-basiskaart/wms/?service=wms&request=GetLegendGraphic&version=1.0.0&format=image/png&layer=GRB_BASISKAART"/>
+      <img id="grblegende" width=400 
+      src="http://geoservices.informatievlaanderen.be/raadpleegdiensten/GRB/wms?service=wms&request=GetLegendGraphic&version=1.3.0&format=image/png&layer=GRB_RPD" />
     </div>
 
     <div id="infoDlg" class="dlg" title="Hoogte"></div>
@@ -52,8 +54,8 @@
     
     /*openlayers gebruiken om de kaart te maken*/
     var dhmBron = new ol.source.ImageWMS({
-                url: 'http://geo.agiv.be/inspire/wms/hoogte',
-                params: {'LAYERS': 'DHM', VERSION: '1.3.0'}
+                url: 'http://geoservices.informatievlaanderen.be/raadpleegdiensten/dhmv/wms',
+                params: {'LAYERS': 'DHMVII_DSM_1m', VERSION: '1.3.0'}
             });  
             
     var hoogte = new ol.layer.Image({
@@ -65,8 +67,8 @@
     var grb = new ol.layer.Image({
             title: "GRB",
             source: new ol.source.ImageWMS({
-                url: 'http://grb.agiv.be/geodiensten/raadpleegdiensten/GRB-basiskaart/wms',
-                params: {LAYERS: 'GRB_BASISKAART', VERSION: '1.3.0'}
+                url: 'http://geoservices.informatievlaanderen.be/raadpleegdiensten/GRB/wms',
+                params: {LAYERS: 'GRB_RPD', VERSION: '1.3.0'}
             })
         });
 

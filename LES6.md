@@ -25,11 +25,11 @@ Deze service heeft 2 eindpunten:
 	 - **c** -> count, het maximaal aantal resultaten dat wordt terug gegeven.
 
 Zo geeft:
-> http://loc.api.geopunt.be/geolocation/Suggestion?q=molenstraat%2018&c=3
+> http://loc.api.geopunt.be/v2/Suggestion?q=molenstraat%2018&c=3
 
 De volgende  response: 
 ```javascript
-{
+{ 
 	SuggestionResult: ["Molenstraat 18, Aalst",
 			"Molenstraat 18, Aalter",
 			"Molenstraat 18, Aarschot"]
@@ -43,7 +43,7 @@ De volgende  response:
 	- **latlon** een coördinaat in geografische coördinaten (EPSG:4326).
 
 Zo geeft:
-> http://loc.api.geopunt.be/geolocation/Location?q=molenstraat&nbsp;18&c=1
+> http://loc.api.geopunt.be/v2/Location?q=molenstraat&nbsp;18&c=1
 
 De volgende response:
 ```javascript
@@ -76,7 +76,7 @@ De volgende response:
 Deze service gebruikt *jsonp* for cross platform request. In jqeury kan deze service dus op deze manier bevragen.
 ```javascript
 $.ajax({ 
-	url: "http://loc.api.geopunt.be/geolocation/Suggestion",
+	url: "http://loc.api.geopunt.be/v2/Suggestion",
     dataType: "jsonp",
     data: {
             q: "Francis Wellesplein 1, Antwerpen",
@@ -93,7 +93,7 @@ var marker;
 $( "#geocoder" ).autocomplete({
     source: function( request, response ) {
         $.ajax({
-        url: "http://loc.api.geopunt.be/geolocation/Suggestion",
+        url: "http://loc.api.geopunt.be/v2/Suggestion",
         dataType: "jsonp",
         data: {
             q: request.term,
@@ -108,7 +108,7 @@ $( "#geocoder" ).autocomplete({
     select: function( event, ui ) {
         var adres = ui.item.label;      
         $.ajax({
-            url: "http://loc.api.geopunt.be/geolocation/Location",
+            url: "http://loc.api.geopunt.be/v2/Location",
             dataType: "jsonp",
             data: {
             q: adres,

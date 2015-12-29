@@ -37,9 +37,9 @@
             format: 'image/png',
             projection: projection,
             tileGrid: new ol.tilegrid.WMTS({
-                origin: ol.extent.getTopLeft(projectionExtent),
-                resolutions: resolutions,
-                matrixIds: matrixIds
+                  origin: ol.extent.getTopLeft(projectionExtent),
+                  resolutions: resolutions,
+                  matrixIds: matrixIds
                 }),
             });
         var grb =  new ol.layer.Tile({

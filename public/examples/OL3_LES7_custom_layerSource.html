@@ -9,7 +9,7 @@
     <!--kaart-->
     <link rel="stylesheet" href="/css/ol.css" type="text/css">
     <script src="/src/ol-debug.js" type="text/javascript"></script>
-     <style>
+    <style>
         #map { position: absolute; top:0;bottom:0;right:0;left:0; background-color: #b0c4de;} 
      </style>
   </head>
@@ -19,9 +19,38 @@
         
          <script type="text/javascript">
          
-            var dlg = $( "#info" ).dialog({ autoOpen: false });
+          var dlg = $( "#info" ).dialog({ autoOpen: false });
             
-            var vectorSource = new ol.source.Vector({projection: 'EPSG:3857'});
+          var vectorSource = new ol.source.Vector({
+            loader: function(extent, resolution, projection) {
+               var url = 'http://gipod.api.agiv.be/ws/v1/workassignment';
+
+               $.ajax({
+                 url: url, dataType: 'json',
+                 data: { 
+                    bbox: extent[0] +","+ extent[1] +"|"+ extent[2] +","+ extent[3],
+                    crs: 3857, 
+                    limit: 1000 },
+                 success: gipodParser
+                 })
+              },
+              strategy: ol.loadingstrategy.tile(
+                 ol.tilegrid.createXYZ({tileSize: 512})
+              )
+            });      
+            
+            function gipodParser(data){
+                var geojsonReader = new ol.format.GeoJSON();        
+                var features = [];
+                $.each(data, function(index, row){
+                    var geom = geojsonReader.readGeometry(row.coordinate);
+                    delete row.coordinate; //niet meer nodig
+                    row.geometry = geom; //voeg openlayers geometrie toe
+                    var feature = new ol.Feature( row );
+                    features.push( feature );
+                });
+                vectorSource.addFeatures(features);
+            }  
             
             var clusterSource = new ol.source.Cluster({
                 distance: 40, source: vectorSource
@@ -56,30 +85,7 @@
                         }
                     return [stl];
                     },
-                source: clusterSource});  
-            
-            $.ajax({ 
-            url: "http://gipod.api.agiv.be/ws/v1/workassignment",
-            dataType : "json",
-            data: { 
-                province: "Antwerpen",
-                crs: 3857, 
-                limit: 500 } })
-            .done(gipodParser)
-            .fail(function(){alert("er liep iets fout")} );
-            
-            function gipodParser(data){
-                var geojsonReader = new ol.format.GeoJSON();        
-                var features = [];
-                $.each(data, function(index, row){
-                    var geom = geojsonReader.readGeometry(row.coordinate);
-                    delete row.coordinate; //niet meer nodig
-                    row.geometry = geom; //voeg openlayers geometrie toe
-                    var feature = new ol.Feature( row );
-                    features.push( feature );
-                });
-                vectorSource.addFeatures(features);
-            }    
+                 source: clusterSource});    
                     
             var basis = new ol.layer.Tile({
                     source: new ol.source.XYZ({

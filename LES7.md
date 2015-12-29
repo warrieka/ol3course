@@ -59,12 +59,12 @@ Om deze data aan de kaart toe voegen hebben een laag en lege databron nodig waar
 var vectorSource = new ol.source.Vector({projection: 'EPSG:31370'});
 var vectorLayer = new ol.layer.Vector(
    {style: new ol.style.Style({
-         image: new ol.style.Circle({
-              radius: 5, 
-              fill: new ol.style.Fill({ 
-	              color: 'rgba(255, 0, 0, 0.5)'})
-               })
-           }),
+        image: new ol.style.Circle({
+            radius: 5, 
+            fill: new ol.style.Fill({ 
+                    color: 'rgba(255, 0, 0, 0.5)'})
+              })
+          }),
    source: vectorSource
    });  
 ``` 
