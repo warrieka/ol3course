@@ -152,8 +152,14 @@
             var val = $("#editCombo")[0].value
             map.removeInteraction(draw);
             map.removeInteraction(modify);
-            if( val == "teken" ){ map.addInteraction(draw); }
-            else if( val == "wijzig" ){ map.addInteraction(modify); }
+            if( val == "teken" ){ 
+               map.addInteraction(draw); 
+               $('#deleteBtn').hide()
+            }
+            else if( val == "wijzig" ){ 
+               map.addInteraction(modify); 
+               $('#deleteBtn').show()
+            }
         }
         
      </script>

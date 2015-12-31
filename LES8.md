@@ -11,7 +11,7 @@ Een type GIS-server-infrastructuur bestaat meestal uit 3 lagen:
 
 - Een datalaag: meestal een ruimtelijke database zoals postgis, maar kan in principe ook een bestandssysteem zijn, zoals een folder met shapefiles. 
 - Een GIS-(applicatie)server: de backend voor webserver, die de GIS-data vertaald naar informatie die leesbaar is in webpagina, Geoserver en Mapserver. 
-- Een webserver waarop je html en eigen logica staat.  
+- Een webserver waarop je html en eigen logica staat.
 
 ![](/images/gis_architecture.png)
 
@@ -24,6 +24,7 @@ Er zijn tegenwoordig heel bedrijven die je data opslaan op hun server-infrastruc
 Via Spatial SQL kan je allerlei analyses en bewerkingen op je data doen. 
 - **[MapBox](https://www.mapbox.com/)** is ook erg gericht op visualisatie van gegevens, maar werkt meer op basis van tiles. Ideaal om een basiskaart op maat van je bedrijf te maken.
 - **[Arcgis](http://www.arcgis.com/)** gebruikers kunnen tegenwoordig ook via Arcgis-online hun data beschikbaar maken in de cloud, zonder dat nog een eigen Arcgis server nodig hebt. Zonder Arcgis desktop is deze toepassing echter maar beperkt bruikbaar.
+- **[Acugis](https://www.acugis.com/)** geoserver/postgis hosting in de cloud, configuratie via webinterface.
 
 Een backend op eigen infrastructuur
 ----
@@ -49,22 +50,21 @@ Open source API's
 ###C/C++
 - **[gdal](http://www.gdal.org/)** is een data-toegang library voor zowel vector als rasterdata, met bindingen voor vele talen, waaronder [python](http://pcjericks.github.io/py-gdalogr-cookbook/index.html) en [nodeJs](http://naturalatlas.github.io/node-gdal/classes/gdal.html).
 - **[geos](http://trac.osgeo.org/geos/)** geometrische operaties, ingebouwd in gdal en database API's zoals postgis.
-- **[proj4](http://trac.osgeo.org/proj/)** projecties, met bindingen naar verschillden talen, zoals [python](http://jswhit.github.io/pyproj).
-- **[mapnik](https://github.com/mapnik/mapnik)** kaart rendering framework, met bindingen naar verschillden talen [nodeJs](https://github.com/mapnik/node-mapnik) en [python](https://github.com/mapnik/pymapnik2).
+- **[proj4](https://github.com/OSGeo/proj.4/)** projecties, met bindingen naar verschillden talen, zoals [python](http://jswhit.github.io/pyproj).
+- **[mapnik](http://mapnik.org/)** kaart rendering framework, met bindingen naar verschillden talen [nodeJs](https://github.com/mapnik/node-mapnik) en [python](https://github.com/mapnik/pymapnik2).
 
 ###python
 - **[geodjango](https://docs.djangoproject.com/en/1.7/ref/contrib/gis/)** webapplicatie framework, inclusief geometrische operaties en data-toegang. Alles wat je nodig hebt om je eigen services te maken.
-- **[shapely](http://toblerity.org/shapely/)** geometrische operaties.
+- **[shapely](http://toblerity.org/shapely/)** geometrische operaties op vectordata.
 - **[fiona](http://toblerity.org/fiona/manual.html)** vector data-toegang.
 - **[rasterIO](https://github.com/mapbox/rasterio)** raster data-toegang en berekeningen.
 
 ###nodeJs (javascript)
 - **[turfJs](http://turfjs.org/)** geometrische operaties in node of rechtstreeks in de browser.
 - **[proj4js](https://github.com/proj4js/proj4js)** projecties in node of rechtstreeks in de browser, een vertaling van de C-versie naar javascript.
-- ESRI is tegenwoordig ook erg into nodeJs: 
+- ESRI is tegenwoordig ook into nodeJs: 
     - **[Geoservices](https://github.com/Esri/geoservices-js)** Tool om ESRI-services aan te spreken vanuit een nodejs omgeving. 
-    - **[Terraformer](http://terraformer.io)** Allerlei tools om te converteren tussen ESRI-webservice formaten en Open source formaten.
-    - **[node-geoservices-adaptor](https://github.com/Esri/node-geoservices-adaptor)** converteer een webservice naar ESRI-service. 
+    - **[node-geoservices-adaptor](https://github.com/Esri/node-geoservices-adaptor)** converteer een webservice naar ee, ESRI-service. 
     - **[geotrigger-js](https://github.com/Esri/geotrigger-js)** via deze tool kan je werken met de realtime geotrigger-service van ESRI in node. 
     
 ###C-sharp

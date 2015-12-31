@@ -28,12 +28,14 @@
     
     <style type="text/css">
         #widget { margin: 0 auto; width:99%} 
-        input { margin: 3px }
-        #code { visibility: hidden; height: 0px}
+        #tryitBtn { margin: 3px }
+        #code { visibility: hidden; height: 0px; padding: 0px; border: 0px;}
         #codeEdit, #resultFrame { overflow: hidden; 
                                   border: 1px solid black; border-collapse: collapse; }
         .alert { margin: 4px; padding: 3px }
         iframe {display:block; width: 100%; height: 100%;}
+        hr {margin: 0px; }
+        
         .CodeMirror { width: 100%; height: 100%; border-top: 1px solid #888; border-bottom: 1px solid #888;}
     </style>
 </head>
@@ -59,8 +61,8 @@
             <li><a href="LES1">Les 1: Hallo Wereld</a></li>
             <li><a href="LES2">Les 2: WMS Lagen</a></li>
             <li><a href="LES3">Les 3: Werken met coördinaat-systemen</a></li>
-            <li><a href="LES4">Les 4: Vectorlagen</a></li>
-            <li><a href="LES5">Les 5: Tegellagen</a></li>
+            <li><a href="LES4">Les 4: Tegellagen</a></li>
+            <li><a href="LES5">Les 5: Vectorlagen</a></li>
             <li><a href="LES6">Les 6: Geolocaliseren op basis van adres</a></li>
             <li><a href="LES7">Les 7: Vectorlagen op maat</a></li>
             <li><a href="LES8">Les 8: Een backend opzetten of zelf programmeren</a></li>
@@ -76,8 +78,8 @@
     
     <div class="alert alert-info" role="alert" id="msg"></div>
     
-    <p><form id="tryitform" name="tryitform" action="result" target="view" method="post">
-    <input type="button"  onclick="manageSubmit()" value="Probeer het" />
+    <form id="tryitform" name="tryitform" action="result" target="view" method="post">
+    <input type="button" id="tryitBtn" onclick="manageSubmit()" value="Probeer het" />
     <div id="widget">
          <div id="codeEdit"></div>
          <div id="resultFrame">
@@ -89,9 +91,8 @@
      
 <!--footer-->
    <footer class="footer">
-   <div class="container" style="font-size: 9px;" >
       <hr/>
-      <div class="row">
+      <div style="font-size: 9px; text-indent: 10px;">
          Kay Warrie &copy; 2015 | email:<a href="mailto:kaywarrie@gmail.com" > kaywarrie@gmail.com</a>         
          <p class="pull-right"><a href="#">Terug naar boven</a></p>
       </div>

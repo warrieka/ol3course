@@ -6,7 +6,7 @@ opdracht: Maak een tweede laag met de manifestaties, gebruik andere kleuren en s
 Les 7:  Vectorlagen op maat
 =====
 Openlayers ondersteunt allerlei standaard tekstformaten voor de opbouw van Vectorlagen, zoals GeoJSON, WKT, KML en GML.
-Veel webservices volgen om allerlei redenen deze structuren niet of maar gedeeltelijk. In dat geval zal je zelf het bestand moeten parseren in javascript een omzetten naar Vectorlaag-bron.
+Veel webservices volgen om allerlei redenen deze structuren niet of maar gedeeltelijk. In dat geval zal je zelf het bestand moeten parseren in javascript een omzetten naar Vectorlaag-bron. Daarvoor kan je de loader-functie uitbreiden met een parser voor het specifieke formaat. 
 
 In deze oefening zullen we de output van [GIPOD public api](http://gipod.api.agiv.be/#!index.md) gebruiken.
 
@@ -38,37 +38,9 @@ Het resultaat is een JSON-array van objecten met de volgende inhoud:
 ]
 ```
 Het integer veld *GipodId* is de unieke ID, het veld *coordinate* bevat het geometrie-object. De andere velden zijn strings behalve *cities*, dat een array van strings is en *importantHindrance* dat een boolean is. 
-Je kunt deze data ophalen via een *ajax* request in JQuery:
 
-```javascript
-$.ajax({ 
-	url: "http://gipod.api.agiv.be/ws/v1/workassignment",
-	dataType : "json"
-	data: { 
-		province: "Limburg",
-		crs: 31370, 
-		limit: 1000 } }).done(
-	function(data){ 
-		//doe iets met de data
-		alert(data[0].description); 
-	});
-```
-Om deze data aan de kaart toe voegen hebben een laag en lege databron nodig waarin we deze gegevens zullen toevoegen.
+Om een feature Object te maken heb je gewoon JSON-object nodig met een Openlayers geometrie object aan gekoppeld. Omdat de geometrie in de gipod API wordt opgeslagen als geojson object kunnen we die format-lezer uit openlayers gebruiken om dit om te zetten een openlayer geometrie object. Als we alle gegevens hebben uitgelezen naar een array van features kunnen we deze aan de laagbron toevoegen.
 
-```javascript
-var vectorSource = new ol.source.Vector({projection: 'EPSG:31370'});
-var vectorLayer = new ol.layer.Vector(
-   {style: new ol.style.Style({
-        image: new ol.style.Circle({
-            radius: 5, 
-            fill: new ol.style.Fill({ 
-                    color: 'rgba(255, 0, 0, 0.5)'})
-              })
-          }),
-   source: vectorSource
-   });  
-``` 
-Om een feature Object te maken heb je gewoon JSON-object nodig met een Openlayers geometrie object aan gekoppeld. Omdat de geometrie in de gipod API wordt opgeslagen als geojson object kunnen we de format-lezer uit openlayers gebruiken om dit om te zetten een openlayer geometrie object. Als we alle gegevens hebben uitgelezen naar een array van features kunnen we deze aan de laagbron toevoegen.
 ```javascript
  function gipodParser(data){
     var geojsonReader = new ol.format.GeoJSON();        
@@ -83,4 +55,26 @@ Om een feature Object te maken heb je gewoon JSON-object nodig met een Openlayer
    vectorSource.addFeatures(features);
 }
 ```
+Deze functie kan je aanroepen als callback in de loader functie, nadat je de gewenste gegevens succesvol heb opgehaalt.
+
+```javascript
+var vectorSource = new ol.source.Vector({
+    loader: function(extent, resolution, projection) {
+        var url = 'http://gipod.api.agiv.be/ws/v1/workassignment';
+
+        $.ajax({
+          url: url, dataType: 'json',
+          data: { 
+            bbox: extent[0] +","+ extent[1] +"|"+ extent[2] +","+ extent[3],
+            crs: 3857, 
+            limit: 1000 },
+          success: gipodParser
+          })
+      },
+      strategy: ol.loadingstrategy.tile(
+          ol.tilegrid.createXYZ({tileSize: 512})
+      )
+  });
+```
+
 
